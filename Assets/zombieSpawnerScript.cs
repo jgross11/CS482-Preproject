@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class zombieSpawnerScript : MonoBehaviour
 {
-
+    private int num = 0;
     // zombie prefab
     public GameObject[] zombie;
 
@@ -28,12 +28,12 @@ public class zombieSpawnerScript : MonoBehaviour
     {
         // add time between the last frame and this one to counter
         currentTime += Time.deltaTime;
-
+        
         // if it is time to spawn a new zombie
         if(spawnTimer < currentTime){
-
+            num++;
             // spawn zombie at given position
-            Instantiate(zombie[0], spawnPosition);
+            Instantiate(zombie[num%2], spawnPosition);
 
             // reset spawn timer
             currentTime = 0;
