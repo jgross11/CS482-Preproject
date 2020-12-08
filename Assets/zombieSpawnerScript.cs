@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class zombieSpawnerScript : MonoBehaviour
 {
-    private int num = 0;
+    System.Random rand = new System.Random();
+
+
     // zombie prefab
     public GameObject[] zombie;
 
@@ -30,10 +32,11 @@ public class zombieSpawnerScript : MonoBehaviour
         currentTime += Time.deltaTime;
         
         // if it is time to spawn a new zombie
-        if(spawnTimer < currentTime){
-            num++;
-            // spawn zombie at given position
-            Instantiate(zombie[num%2], spawnPosition);
+        if(spawnTimer < currentTime) {
+            int num = rand.Next();
+
+            // spawn random zombie at given position
+            Instantiate(zombie[num%zombie.Length], spawnPosition);
 
             // reset spawn timer
             currentTime = 0;
