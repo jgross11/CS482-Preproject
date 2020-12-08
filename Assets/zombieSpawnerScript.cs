@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class zombieSpawnerScript : MonoBehaviour
 {
+    //random number generator
     System.Random rand = new System.Random();
 
 

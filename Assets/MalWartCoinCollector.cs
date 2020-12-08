@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MalWartCoinCollector : MonoBehaviour{
 
-    int MalWartCoinNum = 0;
+    //Counter to hold how many Coins "collected"
+    public int MalWartCoinNum = 0;
 
     // Start is called before the first frame update
     void Start(){
@@ -17,6 +18,7 @@ public class MalWartCoinCollector : MonoBehaviour{
     }
 
     void OnMouseDown(){
+        //printing out the number of coins collected based on every time you click the object
         Debug.Log(MalWartCoinNum++);
     }
 }
