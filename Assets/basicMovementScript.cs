@@ -21,6 +21,8 @@ public class basicMovementScript : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col){
-        Destroy(this.gameObject);
+        if(col.collider.tag == "death"){
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -6,7 +6,7 @@ public class zombieSpawnerScript : MonoBehaviour
 {
 
     // zombie prefab
-    public GameObject zombie;
+    public GameObject[] zombie;
 
     // 3D coords to spawn zombie at
     public Transform spawnPosition;
@@ -33,7 +33,7 @@ public class zombieSpawnerScript : MonoBehaviour
         if(spawnTimer < currentTime){
 
             // spawn zombie at given position
-            Instantiate(zombie, spawnPosition);
+            Instantiate(zombie[0], spawnPosition);
 
             // reset spawn timer
             currentTime = 0;
