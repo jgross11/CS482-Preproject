@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Action Menu.unity
+    guid: 5c8dbd71ab0c4b24084444987f57ee43
+  - enabled: 1
+    path: Assets/Scenes/SwarmMenu.unity
+    guid: be62b8906d57d3b46a2fc51f684b8c89
+  - enabled: 1
+    path: Assets/Scenes/ResearchMenu.unity
+    guid: 01ddc426e3062a14da17cc5ba10556a8
+  - enabled: 1
+    path: Assets/Scenes/CampaignMenu.unity
+    guid: b82610b68af0e1c4c8b160689ee38df4
   m_configObjects: {}
