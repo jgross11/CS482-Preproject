@@ -11,7 +11,7 @@ public class CashierCoinScript : MonoBehaviour
     private Vector3 randDirection;
     private float currentLifeTime = 0.0f;
     public float maxMoveTime = 1.0f;
-    public float lifeTime = 5.0f;
+    public float lifeTime = 7.0f;
 
     void Start()
     {

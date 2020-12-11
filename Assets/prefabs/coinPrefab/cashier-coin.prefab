@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMoveTime: 1
-  lifeTime: 5
+  lifeTime: 7
 --- !u!212 &3421559715248417272
 SpriteRenderer:
   m_ObjectHideFlags: 0

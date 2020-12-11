@@ -146,5 +146,4 @@ MonoBehaviour:
   experience: 0
   experienceForNextLevel: 10
   cost: 0
-  timeBetweenActions: 5
-  isActive: 0
+  timeBetweenActions: 7
