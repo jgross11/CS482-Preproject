@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 165151816}
   - component: {fileID: 165151815}
   m_Layer: 0
-  m_Name: spawner (1)
+  m_Name: coinSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1057,7 +1057,7 @@ GameObject:
   - component: {fileID: 1518978288}
   - component: {fileID: 1518978287}
   m_Layer: 0
-  m_Name: spawner
+  m_Name: zombieSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
