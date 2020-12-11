@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 7144377655123623618}
   - component: {fileID: 7144377655123623619}
   m_Layer: 0
-  m_Name: tower-menu-background (1)
+  m_Name: tower-menu-background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -821,7 +821,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 58240914d31c2174d82ef6df8dee3a52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
