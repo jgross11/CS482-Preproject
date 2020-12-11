@@ -1,32 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class MalWartCoinCollector : MonoBehaviour{
+public class coinCounter : MonoBehaviour
+{
 
-    //the coin object
-    public GameObject coin;
+
+    public Text text;
 
     public playMenuHandler menu;
 
     // Start is called before the first frame update
-    void Start(){
-
+    void Start()
+    {
         menu = GameObject.Find("tower-menu-background").GetComponent<playMenuHandler>();
-       
     }
 
     // Update is called once per frame
-    void Update(){
-        
-    }
-
-    void OnMouseDown(){
-
-        menu.AddCoins(1);
-
-        //destroying this instance of the coin upon click
-        Destroy(this.coin);
-
+    void Update()
+    {
+        text.text = "Number of coins: " + menu.GetCoins();
     }
 }

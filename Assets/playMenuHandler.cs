@@ -30,9 +30,6 @@ public class playMenuHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numberOfCoins = 0;
-        //Debug.Log(numberOfCoins);
-
 
         // create preview of each available employee type
         // in the header menu
@@ -120,7 +117,11 @@ public class playMenuHandler : MonoBehaviour
     // to the total amount
     public void AddCoins(int number){
         numberOfCoins += number;
-        Debug.Log(numberOfCoins);
+    }
+
+    public int GetCoins()
+    {
+        return numberOfCoins;
     }
 
     // returns the selected employee prefab

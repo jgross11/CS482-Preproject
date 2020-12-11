@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: coinPrefabwithMovement Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6240463120772411459, guid: 1306c3d0ad7cb1d4989ec441f876b465, type: 3}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 7144377655123623628, guid: b01c8097887e1b04588650a850b5788f, type: 3}
     - target: {fileID: 6240463120772411486, guid: 1306c3d0ad7cb1d4989ec441f876b465, type: 3}
       propertyPath: m_RootOrder
       value: 0

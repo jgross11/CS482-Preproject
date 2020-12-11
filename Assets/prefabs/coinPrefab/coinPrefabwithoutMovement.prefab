@@ -152,4 +152,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 6240463120772411458}
-  menu: {fileID: 7144377655123623619, guid: b01c8097887e1b04588650a850b5788f, type: 3}
+  menu: {fileID: 7144377655123623628, guid: b01c8097887e1b04588650a850b5788f, type: 3}
