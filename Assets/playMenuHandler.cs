@@ -114,8 +114,9 @@ public class playMenuHandler : MonoBehaviour
 
     // adds the given number of coins (short term currency)
     // to the total amount
-    void AddCoins(int number){
+    public void AddCoins(int number){
         numberOfCoins += number;
+        Debug.Log(numberOfCoins);
     }
 
     // returns the selected employee prefab

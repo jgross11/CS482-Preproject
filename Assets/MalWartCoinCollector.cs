@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MalWartCoinCollector : MonoBehaviour{
 
-    //Counter to hold how many Coins "collected"
-    public int MalWartCoinNum = 0;
+    //the coin object
     public GameObject coin;
+
+    public playMenuHandler menu;
 
     // Start is called before the first frame update
     void Start(){
@@ -19,8 +20,11 @@ public class MalWartCoinCollector : MonoBehaviour{
     }
 
     void OnMouseDown(){
-        //printing out the number of coins collected based on every time you click the object
+
+        menu.AddCoins(1);
+
+        //destroying this instance of the coin upon click
         Destroy(this.coin);
-        Debug.Log(MalWartCoinNum++);
+
     }
 }
