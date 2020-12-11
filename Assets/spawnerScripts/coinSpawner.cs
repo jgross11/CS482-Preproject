@@ -7,7 +7,11 @@ public class coinSpawner : MonoBehaviour
 
     public GameObject Coin;
 
-    public Transform position;
+    public Transform spawnerPosition;
+
+    public Vector3 position;
+
+    public Quaternion rotation;
 
     public float spawnTimer;
 
@@ -18,6 +22,7 @@ public class coinSpawner : MonoBehaviour
     void Start()
     {
         currentTime = 0;
+        position = spawnerPosition.position;
     }
 
     // Update is called once per frame
@@ -30,7 +35,7 @@ public class coinSpawner : MonoBehaviour
         {
             
             // spawn random zombie at given position
-            Instantiate(Coin, position);
+            Instantiate(Coin, position, rotation);
 
             // reset spawn timer
             currentTime = 0;

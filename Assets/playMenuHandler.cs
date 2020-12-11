@@ -30,6 +30,10 @@ public class playMenuHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        numberOfCoins = 0;
+        //Debug.Log(numberOfCoins);
+
+
         // create preview of each available employee type
         // in the header menu
         for(int i = 0; i < availableEmployees.Length; i++)
