@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3421559715248417159}
+  - component: {fileID: -4321023846453992934}
   - component: {fileID: 3421559715248417272}
-  - component: {fileID: 3421559715248417273}
   - component: {fileID: 3421559715248417274}
   m_Layer: 0
   m_Name: cashier-coin
@@ -33,6 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4321023846453992934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421559715248417275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c39c4efd86f144409f9486cf1f0c20f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMoveTime: 1
+  lifeTime: 5
 --- !u!212 &3421559715248417272
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -84,18 +98,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3421559715248417273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3421559715248417275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c39c4efd86f144409f9486cf1f0c20f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &3421559715248417274
 PolygonCollider2D:
   m_ObjectHideFlags: 0

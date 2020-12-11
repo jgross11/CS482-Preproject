@@ -145,4 +145,6 @@ MonoBehaviour:
   level: 1
   experience: 0
   experienceForNextLevel: 10
-  timeBetweenActions: 3
+  cost: 0
+  timeBetweenActions: 5
+  isActive: 0
