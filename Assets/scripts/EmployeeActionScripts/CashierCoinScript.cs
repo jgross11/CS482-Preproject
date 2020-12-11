@@ -9,7 +9,9 @@ public class CashierCoinScript : MonoBehaviour
     // Start is called before the first frame update
 
     private Vector3 randDirection;
-    private float moveTime = 0.0f;
+    private float currentLifeTime = 0.0f;
+    public float maxMoveTime = 1.0f;
+    public float lifeTime = 5.0f;
 
     void Start()
     {
@@ -19,9 +21,12 @@ public class CashierCoinScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(moveTime < 1.0f){
-            moveTime += Time.deltaTime;
+        currentLifeTime += Time.deltaTime;
+        if(currentLifeTime < maxMoveTime){
             transform.position += randDirection * 0.003f;
+        }
+        if(currentLifeTime >= lifeTime){
+            Destroy(this.gameObject);
         }
     }
 
