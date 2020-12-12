@@ -499,9 +499,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1daa5ab397102048ae51f12a7119806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: []
+  zombie:
+  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
+  - {fileID: 9155295579116168346, guid: e4bafe36747177f4db492b458dc7150f, type: 3}
   spawnPosition: {fileID: 1518978288}
-  spawnTimer: -1
+  spawnTimer: 3
 --- !u!4 &1518978288
 Transform:
   m_ObjectHideFlags: 0
