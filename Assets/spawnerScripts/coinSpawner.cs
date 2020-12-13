@@ -30,7 +30,7 @@ public class coinSpawner : MonoBehaviour
     {
         currentTime += Time.deltaTime;
         
-        // if it is time to spawn a new zombie
+        // if it is time to spawn a new coin
         if (spawnTimer < currentTime)
         {
             
