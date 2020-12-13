@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 5420185802761898444}
   - component: {fileID: 9209592480133395770}
   m_Layer: 0
-  m_Name: blarget_employee
+  m_Name: vending_machine_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,3 +147,4 @@ MonoBehaviour:
   experienceForNextLevel: 10
   cost: 0
   timeBetweenActions: 7
+  actionCooldown: 7

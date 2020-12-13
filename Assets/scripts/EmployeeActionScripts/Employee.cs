@@ -11,13 +11,12 @@ public class Employee : MonoBehaviour
 
     // unity doesn't like inheritance, so cannot be directly assigned
     private ActionScript actionScript;
-    private float actionCooldown; 
+    public float actionCooldown; 
 
     // Start is called before the first frame update
     void Start()
     {
-        // can act immediately
-        actionCooldown = timeBetweenActions;
+        
 
         // bypass unity's anti-inheritance stance by attaching the concrete script to the tower's child
         actionScript = this.gameObject.transform.GetChild(0).GetComponent<ActionScript>();
@@ -31,7 +30,7 @@ public class Employee : MonoBehaviour
         if(actionCooldown < timeBetweenActions){
             // decrease time until next action can occur
             actionCooldown += Time.deltaTime;
-
+            
         // if the tower is ready to act and can act
         } else if(actionScript.CanAct() && isActive){
 

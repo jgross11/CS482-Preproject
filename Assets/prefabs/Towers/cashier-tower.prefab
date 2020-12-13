@@ -147,3 +147,4 @@ MonoBehaviour:
   experienceForNextLevel: 10
   cost: 0
   timeBetweenActions: 7
+  actionCooldown: 0
