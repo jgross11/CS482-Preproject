@@ -7,7 +7,7 @@ public class coinCounter : MonoBehaviour
 {
 
 
-    public Text text;
+    private Text text;
 
     public playMenuHandler menu;
 
@@ -15,6 +15,9 @@ public class coinCounter : MonoBehaviour
     void Start()
     {
         menu = GameObject.Find("tower-menu-background").GetComponent<playMenuHandler>();
+
+        text = GetComponent<Text>();
+
     }
 
     // Update is called once per frame
