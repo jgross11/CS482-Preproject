@@ -18,7 +18,11 @@ public class PharmacistPillScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        randDirection = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
+        // randDirection = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
+    }
+
+    public void SetDirection(Vector3 dir){
+        randDirection = dir;
     }
 
     // Update is called once per frame
@@ -30,22 +34,22 @@ public class PharmacistPillScript : MonoBehaviour
             transform.Rotate(Vector3.forward);
         }
         else if(currentLifeTime < maxMoveTime){
-            transform.position += randDirection * 0.003f;
+            transform.position = Vector2.MoveTowards(transform.position, randDirection, moveSpeed * Time.deltaTime);
         }
         else if(currentLifeTime >= lifeTime){
             Destroy(this.gameObject);
         }
     }
 
-    public void setValue(int val){
+    public void SetValue(int val){
         value = val;
     }
 
-    public void setTarget(GameObject newTarget){
+    public void SetTarget(GameObject newTarget){
         target = newTarget;
     }
 
-    public void setParentScript(PharmacistActionScript ps){
+    public void SetParentScript(PharmacistActionScript ps){
         parentScript = ps;
     }
 
