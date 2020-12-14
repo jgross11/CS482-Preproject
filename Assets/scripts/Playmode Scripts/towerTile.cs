@@ -51,6 +51,9 @@ public class towerTile : MonoBehaviour
             // create a copy of the selected employee at this position
             tower = Instantiate(menuScript.CreateSelectedEmployee(), gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
 
+            // temporarily disable the tile collider to ensure tower is clicked
+            GetComponent<Collider2D>().enabled = false;
+
             // revert color to normal 
             spriteRenderer.color = Color.white;
         }
