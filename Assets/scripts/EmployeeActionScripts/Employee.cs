@@ -5,7 +5,7 @@ using UnityEngine;
 public class Employee : MonoBehaviour
 {
 
-    public int health, attack, level, experience, experienceForNextLevel, cost;
+    public int maxHealth, currentHealth, attack, level, experience, experienceForNextLevel, cost;
     public float timeBetweenActions;
     private bool isActive;
 
@@ -21,6 +21,9 @@ public class Employee : MonoBehaviour
         // bypass unity's anti-inheritance stance by attaching the concrete script to the tower's child
         actionScript = this.gameObject.transform.GetChild(0).GetComponent<ActionScript>();
         isActive = true;
+
+        // initially has full health
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -45,10 +48,17 @@ public class Employee : MonoBehaviour
     // handles reduction of health by a given amount
     // as well as death case, if necessary
     public void TakeDamage(int amount){
-        health -= amount;
-        if(health < 1){
+        currentHealth -= amount;
+        if(currentHealth < 1){
             Destroy(gameObject);
         }
+    }
+
+    // handles addition of health by a given amount
+    // as well as overheal, if necessary
+    public void Heal(int val){
+        // TODO determine if overheal is okay
+        currentHealth = currentHealth + val > maxHealth ? maxHealth : currentHealth + val;
     }
 
     // handles experience gaining by a given amount
@@ -69,9 +79,10 @@ public class Employee : MonoBehaviour
         experience -= experienceForNextLevel;
 
         // TODO balance / individualize this
-        health += 5;
+        maxHealth += 5;
+        currentHealth += 5;
         attack += 2;
-        experienceForNextLevel = (int)(experienceForNextLevel * 1.1f);
+        experienceForNextLevel = (int)(experienceForNextLevel * 1.1f) + 2;
     }   
 
 }
