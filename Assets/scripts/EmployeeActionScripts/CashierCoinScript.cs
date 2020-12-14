@@ -37,9 +37,14 @@ public class CashierCoinScript : MonoBehaviour
     void OnMouseDown(){
         // absolutely awful
         // add coin value to coin count
-        GameObject.Find("tower-menu-background").GetComponent<playMenuHandler>().AddCoins(value);
+        GameObject.Find("tower-menu-background").GetComponent<playMenuHandler>().AddCoins(value);   
 
-        // destroy coin 
-        Destroy(this.gameObject);
+        // destroy coin after a short period of time
+        // cannot destroy immediately as, for example, if a pharmacist
+        // is selected, destroy immediately means the pharmacist is deselected
+        // as this object is destroyed before the pharmacist's ray can collide
+        // with this object's collider to preserve selection. 
+        Destroy(this.gameObject, 0.01f);
     }
+
 }
