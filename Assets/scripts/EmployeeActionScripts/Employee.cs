@@ -8,6 +8,7 @@ public class Employee : MonoBehaviour
     public int maxHealth, currentHealth, attack, level, experience, experienceForNextLevel, cost;
     public float timeBetweenActions;
     private bool isActive;
+    public string type;
 
     // unity doesn't like inheritance, so cannot be directly assigned
     private ActionScript actionScript;

@@ -106,6 +106,7 @@ MonoBehaviour:
   experienceForNextLevel: 10
   cost: 0
   timeBetweenActions: 7
+  type: pharmacist
   actionCooldown: 0
 --- !u!50 &5559591140027993994
 Rigidbody2D:
