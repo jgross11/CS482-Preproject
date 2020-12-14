@@ -105,7 +105,7 @@ MonoBehaviour:
   experience: 0
   experienceForNextLevel: 10
   cost: 0
-  timeBetweenActions: 7
+  timeBetweenActions: 3
   type: pharmacist
   actionCooldown: 0
 --- !u!50 &5559591140027993994
@@ -265,3 +265,5 @@ MonoBehaviour:
   parentCollider: {fileID: 5559591140027993995}
   parentSpriteRenderer: {fileID: 8536638313075684935}
   targetSpriteRenderer: {fileID: 0}
+  pillsOut: 0
+  maxAmountOfPills: 0
