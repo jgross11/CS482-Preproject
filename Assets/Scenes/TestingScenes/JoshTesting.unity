@@ -2075,9 +2075,11 @@ MonoBehaviour:
   availableEmployees:
   - {fileID: 4278307491272967943, guid: 6c32404b1d41a28409a8139bd95d1aa6, type: 3}
   - {fileID: 9155295579116168346, guid: e4bafe36747177f4db492b458dc7150f, type: 3}
+  - {fileID: 8536638313075684933, guid: 1c7941c2fae3a7f4da84bd1f91a96cdd, type: 3}
   menuSlots:
   - {fileID: 863790384}
   - {fileID: 2004634036}
+  - {fileID: 1588464142}
   selectedSlotIndex: 0
   selectedEmployee: {fileID: 0}
 --- !u!1 &2004634036
@@ -2211,6 +2213,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8536638313075684932, guid: 1c7941c2fae3a7f4da84bd1f91a96cdd, type: 3}
+      propertyPath: timeBetweenActions
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8536638313075684933, guid: 1c7941c2fae3a7f4da84bd1f91a96cdd, type: 3}
       propertyPath: m_Name
       value: pharmacist-tower
