@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -4321023846453992934}
   - component: {fileID: 3421559715248417272}
   - component: {fileID: 3421559715248417274}
+  - component: {fileID: 5797686659457566794}
   m_Layer: 0
   m_Name: cashier-coin
   m_TagString: Untagged
@@ -153,3 +154,24 @@ PolygonCollider2D:
       - {x: 0.089999996, y: -0.34}
       - {x: 0.22, y: -0.25}
       - {x: 0.48, y: -0.39999998}
+--- !u!50 &5797686659457566794
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421559715248417275}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 3
