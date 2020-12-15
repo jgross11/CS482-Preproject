@@ -54,8 +54,14 @@ public class towerTile : MonoBehaviour
             // temporarily disable the tile collider to ensure tower is clicked
             GetComponent<Collider2D>().enabled = false;
 
-            // revert color to normal 
+            // revert tile color to normal 
             spriteRenderer.color = Color.white;
+
+            // deselect tower in menu if no more can be afforded
+            if(!menuScript.CanAffordTower()){
+                menuScript.Deselect();
+            }
         }
+        
     }
 }
