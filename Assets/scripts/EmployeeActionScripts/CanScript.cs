@@ -6,6 +6,8 @@ public class CanScript : MonoBehaviour
 {
     private int value;
     private Vector3 direction;
+    // movement speed 
+    public float moveSpeed;
 
     // Start is called before the first frame update
 
@@ -17,18 +19,28 @@ public class CanScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += direction * 0.003f;
+        transform.position += Vector3.right * Time.deltaTime * moveSpeed;
 
 
     }
 
-    public void setValue(int val)
+    public void SetValue(int val)
     {
         value = val;
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        Destroy(this.gameObject);
+        // if collided with zombie
+        if (col.tag == "zombie")
+        {
+            // TODO implement zombie please
+
+            // damage the zombie by this can's damage value
+            // col.GetComponent<Zombie>().damage(value);
+
+            // destroy the carrot
+            Destroy(this.gameObject);
+        }
     }
 }
