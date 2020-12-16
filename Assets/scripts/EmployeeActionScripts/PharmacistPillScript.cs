@@ -53,7 +53,7 @@ public class PharmacistPillScript : MonoBehaviour
         if(isActive){
             
             // move towards target and rotate for neat effect
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
             transform.Rotate(Vector3.forward);
         }
 
@@ -61,7 +61,7 @@ public class PharmacistPillScript : MonoBehaviour
         else if(currentLifeTime < maxMoveTime){
             
             // move pill towards desired position
-            transform.position = Vector2.MoveTowards(transform.position, randDirection, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, randDirection, moveSpeed * Time.deltaTime);
         }
 
         // otherwise if pill has overstayed its welcome
