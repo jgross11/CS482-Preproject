@@ -49,7 +49,7 @@ public class CanScript : MonoBehaviour
                 zombieScript.Damage(value);
             }
             */
-            // destroy the carrot
+            // destroy the can
             Destroy(this.gameObject);
         }
     }
