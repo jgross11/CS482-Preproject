@@ -12,7 +12,7 @@ public class coinMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(rand.Next(-10, 10), 4, 0);
+        transform.position = new Vector3(rand.Next(-6, 6), 2, -9);
 
     }
 

@@ -159,7 +159,7 @@ public class PharmacistActionScript : ActionScript
     public override void Act(int attack)
     {
         // create instance of pill here, obtain reference to its script
-        PharmacistPillScript pillScript = Instantiate(pillPrefab, transform.position, transform.rotation).GetComponent<PharmacistPillScript>();
+        PharmacistPillScript pillScript = Instantiate(pillPrefab, new Vector3(transform.position.x, transform.position.y, -9), transform.rotation).GetComponent<PharmacistPillScript>();
 
         // set healing power relative to this tower's attack
         // TODO balancing
@@ -181,7 +181,7 @@ public class PharmacistActionScript : ActionScript
         pillsOut++;
 
         // set pill's target direction to the generated x, y pos
-        pillScript.SetDesiredPosition(new Vector3(transform.position.x + xPos, transform.position.y + yPos, 0));
+        pillScript.SetDesiredPosition(new Vector3(transform.position.x + xPos, transform.position.y + yPos, -9));
 
     }
 }

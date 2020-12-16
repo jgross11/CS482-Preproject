@@ -7,7 +7,7 @@ public class towerTile : MonoBehaviour
 {
 
     // menu script used when creating a tower
-    public playMenuHandler menuScript;
+    private playMenuHandler menuScript;
 
     // the tile's spriterenderer
     public SpriteRenderer spriteRenderer;
@@ -25,6 +25,8 @@ public class towerTile : MonoBehaviour
 
         // get this collider
         myCollider = GetComponent<Collider2D>();
+
+        menuScript = GameObject.Find("tower-menu-background").GetComponent<playMenuHandler>();
     }
 
     void Update(){
