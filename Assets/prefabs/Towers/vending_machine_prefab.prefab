@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7381473286664412301}
   - component: {fileID: 5946747180468559995}
   m_Layer: 0
-  m_Name: vending_machine_prefab 1
-  m_TagString: Untagged
+  m_Name: vending_machine_prefab
+  m_TagString: employee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

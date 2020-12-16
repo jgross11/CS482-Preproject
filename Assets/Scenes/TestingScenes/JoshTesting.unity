@@ -804,6 +804,7 @@ MonoBehaviour:
   menuScript: {fileID: 1955443994}
   spriteRenderer: {fileID: 0}
   tower: {fileID: 0}
+  myCollider: {fileID: 0}
 --- !u!61 &1258889831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1124,6 +1125,7 @@ MonoBehaviour:
   menuScript: {fileID: 1955443994}
   spriteRenderer: {fileID: 0}
   tower: {fileID: 0}
+  myCollider: {fileID: 0}
 --- !u!61 &1731366637
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1563,7 +1565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availableEmployees:
   - {fileID: 4278307491272967943, guid: 6c32404b1d41a28409a8139bd95d1aa6, type: 3}
-  - {fileID: 7015812009423159050, guid: 356ec36517c246849aa089f4743c116d, type: 3}
+  - {fileID: 5482348889610775115, guid: 84f51fcc55f203044a2d4218435cfff3, type: 3}
   - {fileID: 8536638313075684933, guid: 1c7941c2fae3a7f4da84bd1f91a96cdd, type: 3}
   - {fileID: 8239894893703321049, guid: 084b2eb5af9688f4e89ee27d0143fae8, type: 3}
   - {fileID: 6896541869413347108, guid: de83b04ace65beb4487bcc6cf0220abe, type: 3}
@@ -1734,6 +1736,7 @@ MonoBehaviour:
   menuScript: {fileID: 1955443994}
   spriteRenderer: {fileID: 0}
   tower: {fileID: 0}
+  myCollider: {fileID: 0}
 --- !u!61 &2049451838
 BoxCollider2D:
   m_ObjectHideFlags: 0
