@@ -25,7 +25,7 @@ public class playMenuHandler : MonoBehaviour
     public Employee employeeScript; 
 
     // number of coins / happiness (short term currency) gathered thus far
-    private int numberOfCoins = 0;
+    private int numberOfCoins = 10;
     
     // Start is called before the first frame update
     void Start()
