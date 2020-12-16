@@ -15,10 +15,23 @@ public class towerTile : MonoBehaviour
     // the current tower occupying this tile
     public GameObject tower;
 
+    // this tile's collider
+    public Collider2D myCollider;
+
     void Start(){
 
         // get this sprite renderer for hovering purposes
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // get this collider
+        myCollider = GetComponent<Collider2D>();
+    }
+
+    void Update(){
+        // check if tower still exists 
+        if(tower == null){
+            myCollider.enabled = true;
+        }
     }
 
     void OnMouseEnter(){
@@ -52,7 +65,7 @@ public class towerTile : MonoBehaviour
             tower = Instantiate(menuScript.CreateSelectedEmployee(), gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
 
             // temporarily disable the tile collider to ensure tower is clicked
-            GetComponent<Collider2D>().enabled = false;
+            myCollider.enabled = false;
 
             // revert tile color to normal 
             spriteRenderer.color = Color.white;
