@@ -32,7 +32,7 @@ public class ProduceCarrotScript : MonoBehaviour
             // TODO implement zombie please
             
             // damage the zombie by this carrot's damage value
-            // col.GetComponent<Zombie>().damage(value);
+            col.GetComponent<Zombie>().Damage(value);
 
             // destroy the carrot
             Destroy(this.gameObject);
