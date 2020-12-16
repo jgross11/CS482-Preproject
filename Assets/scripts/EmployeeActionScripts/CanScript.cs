@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CanScript : MonoBehaviour
 {
-    private int value;
+    public int value;
     private Vector3 direction;
     // movement speed 
     public float moveSpeed;
@@ -37,8 +37,18 @@ public class CanScript : MonoBehaviour
             // TODO implement zombie please
 
             // damage the zombie by this can's damage value
-            // col.GetComponent<Zombie>().damage(value);
+            Zombie zombieScript = col.GetComponent<Zombie>();
 
+            zombieScript.Damage(value);
+
+            /*
+            // fix bug where zombie is destroyed before function is called
+            // this may not be necessary
+            
+            if(zombieScript != null){
+                zombieScript.Damage(value);
+            }
+            */
             // destroy the carrot
             Destroy(this.gameObject);
         }
