@@ -15,7 +15,7 @@ public class VendingMachineActionScript : ActionScript
     {
 
         // uncomment for debugging range
-        Debug.DrawRay(transform.position, Vector3.right * detectionRange, Color.white, 2.0f, false);
+        //Debug.DrawRay(transform.position, Vector3.right * detectionRange, Color.white, 2.0f, false);
 
         // collect information about potential zombie in view range
         // want to only find zombies, which reside on layer 'zombie', layermasking goes by activated bit, not integer value
