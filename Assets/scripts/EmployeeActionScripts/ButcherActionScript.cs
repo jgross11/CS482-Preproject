@@ -54,7 +54,7 @@ public class ButcherActionScript : ActionScript
 
             // deal damage to zombie
             // TODO 
-            // zombieCollider.GetComponent<Zombie>().Damage(value);
+            zombieCollider.GetComponent<Zombie>().Damage(value);
         }
     }
 

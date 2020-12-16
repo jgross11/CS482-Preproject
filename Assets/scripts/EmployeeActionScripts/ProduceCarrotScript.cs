@@ -32,7 +32,18 @@ public class ProduceCarrotScript : MonoBehaviour
             // TODO implement zombie please
             
             // damage the zombie by this carrot's damage value
-            // col.GetComponent<Zombie>().damage(value);
+            Zombie zombieScript = col.GetComponent<Zombie>();
+            
+            zombieScript.Damage(value);
+            
+            /*
+            // fix bug where zombie is destroyed before function is called
+            // this may not be necessary
+            
+            if(zombieScript != null){
+                zombieScript.Damage(value);
+            }
+            */
 
             // destroy the carrot
             Destroy(this.gameObject);
