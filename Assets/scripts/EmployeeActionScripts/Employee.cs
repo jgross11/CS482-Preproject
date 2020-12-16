@@ -36,7 +36,7 @@ public class Employee : MonoBehaviour
             actionCooldown += Time.deltaTime;
             
         // if the tower is ready to act and can act
-        } else if(actionScript.CanAct() && isActive){
+        } else if(isActive && actionScript.CanAct()){
 
             // act, and then reset action cooldown
             // TODO determine if attack is always 
