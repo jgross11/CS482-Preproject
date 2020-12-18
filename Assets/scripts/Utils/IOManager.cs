@@ -2,41 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IOManager
+public class IOManager : MonoBehaviour
 {
     // save player information to local file
-    public static bool saveToLocalFile(SaveObject so){
+    public void saveToLocalFile(){
         Debug.LogError("Not yet implemented!");
-        return false;
     }
 
     // load player information from local file
-    public static SaveObject loadFromLocalFile(string playerName){
+    public void loadFromLocalFile(){
         Debug.LogError("Not yet implemented!");
-        return null;
     }
 
     // save player information to playerpreferences
-    public static bool saveToPlayerPreferences(SaveObject so){
-        Debug.LogError("Not yet implemented!");
-        return false;
+    public void saveToPlayerPreferences(){
+        PlayerPrefs.SetInt("happiness", SaveObject.numHappiness);
     }
 
     // load player information from playerpreferences
-    public static SaveObject loadFromPlayerPreferences(string playerName){
-        Debug.LogError("Not yet implemented!");
-        return null;
+    public void loadFromPlayerPreferences(){
+        SaveObject.numHappiness = PlayerPrefs.GetInt("happiness", 0);
     }
 
     // save player information to binary file
-    public static bool saveToBinary(SaveObject so){
+    public void saveToBinary(){
         Debug.LogError("Not yet implemented!");
-        return false;
     }
 
     // load player information from binary file
-    public static SaveObject loadFromBinary(string playerName){
+    public void loadFromBinary(){
         Debug.LogError("Not yet implemented!");
-        return null;
     }
 }
