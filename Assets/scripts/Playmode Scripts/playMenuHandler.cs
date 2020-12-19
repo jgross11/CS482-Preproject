@@ -31,6 +31,11 @@ public class playMenuHandler : MonoBehaviour
     void Start()
     {
 
+        // number of coins depends on current wave
+        // TODO figure out how to not make this a predetermined amount
+        // TODO determine scaling function
+        numberOfCoins = 10 + SaveObject.maxCampaignWave;
+
         // create preview of each available employee type
         // in the header menu
         for(int i = 0; i < availableEmployees.Length; i++)
