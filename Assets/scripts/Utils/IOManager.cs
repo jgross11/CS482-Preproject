@@ -36,7 +36,7 @@ public class IOManager : MonoBehaviour
         // TODO get all save data attributes here...
         SaveObject.numHappiness = PlayerPrefs.GetInt(SaveObject.HAPPINESS, 0);
         SaveObject.maxSwarmWave = PlayerPrefs.GetInt(SaveObject.MAX_SWARM_WAVE, 0);
-        SaveObject.maxSwarmWave = PlayerPrefs.GetInt(SaveObject.MAX_CAMPAIGN_WAVE, 0);
+        SaveObject.maxCampaignWave = PlayerPrefs.GetInt(SaveObject.MAX_CAMPAIGN_WAVE, 0);
     }
 
     // save player information to binary file
