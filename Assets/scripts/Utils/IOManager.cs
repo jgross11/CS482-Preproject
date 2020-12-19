@@ -18,10 +18,10 @@ public class IOManager : MonoBehaviour
 
     // save player information to playerpreferences
     public static void SaveToPlayerPreferences(){
+        // TODO set all save data attributes here...
         PlayerPrefs.SetInt(SaveObject.HAPPINESS, SaveObject.numHappiness);
         PlayerPrefs.SetInt(SaveObject.MAX_SWARM_WAVE, SaveObject.maxSwarmWave);
         PlayerPrefs.SetInt(SaveObject.MAX_CAMPAIGN_WAVE, SaveObject.maxCampaignWave);
-        // TODO set all save data attributes here...
 
         // acts as force save, otherwise only save occurs on safe exit of game (everything is lost on game crash)
         PlayerPrefs.Save();
@@ -49,6 +49,7 @@ public class IOManager : MonoBehaviour
         Debug.LogError("Not yet implemented!");
     }
 
+    // delete all save information from player prefs
     public static void WipeAllSavedData(){
         PlayerPrefs.DeleteAll();
     }
