@@ -38,6 +38,23 @@ public class CampaignZombieSpawner : ZombieSpawner
     }
 
     public void LoadNextWave(){
+
+        // wipe all currently existing zombies, if any exist
+        Transform[] children = transform.GetComponentsInChildren<Transform>();
+        
+        // ensure accidental end-of-wave isn't achieved
+        numAliveZombies = -1;
+        foreach(Transform child in children)
+        {
+            // apparently, the parent is itself a child
+            // a philosophical statement if ever there was one
+            // but we don't want to destroy the parent. 
+            if(child == transform){
+                continue;
+            }
+            Destroy(child.gameObject);
+        }
+
         // TODO extend this to a chosen campaign wave, rather than preset
         // get the wave contents for the current wave number
         spawnObjects = GetWaveContents(SaveObject.maxCampaignWave+1);
@@ -49,6 +66,8 @@ public class CampaignZombieSpawner : ZombieSpawner
 
         // wave just started, so set time to 0
         timeSinceWaveStart = 0;
+
+        numAliveZombies = 0;
 
         // start of wave -> move zombies to spawn
         doneSpawning = false;
@@ -97,8 +116,8 @@ public class CampaignZombieSpawner : ZombieSpawner
     }
 
     public override void Spawn(){
-        // spawn                                            next zombie's type,                 at the indicated location,              standing up straight,
-        GameObject go = Instantiate(zombieSelectionArray[nextSpawnObject.zombieIndex], spawningLocations[nextSpawnObject.positionIndex], Quaternion.identity);
+        // spawn                                            next zombie's type,                 at the indicated location,              standing up straight, as a child of this object
+        GameObject go = Instantiate(zombieSelectionArray[nextSpawnObject.zombieIndex], spawningLocations[nextSpawnObject.positionIndex], Quaternion.identity, this.transform);
         
         // attach and obtain reference to destroy listener on spawned zombie
         CampaignZombieDestroyListener listener = go.AddComponent(typeof(CampaignZombieDestroyListener)) as CampaignZombieDestroyListener;
