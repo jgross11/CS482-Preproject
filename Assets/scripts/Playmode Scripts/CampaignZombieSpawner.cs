@@ -29,7 +29,7 @@ public class CampaignZombieSpawner : ZombieSpawner
     {
         // TODO extend this to a chosen campaign wave, rather than preset
         // get the wave contents for the current wave number
-        spawnObjects = GetWaveContents(SaveObject.maxCampaignWave-1);
+        spawnObjects = GetWaveContents(SaveObject.maxCampaignWave);
 
         // first zombie index is 0
         nextSpawnIndex = 0;
