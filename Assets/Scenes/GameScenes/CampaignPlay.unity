@@ -200,6 +200,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b01c8097887e1b04588650a850b5788f, type: 3}
+--- !u!114 &283756929 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4358849439437629270, guid: 55b12d44c82604e4f8ffdbcda3f99d8c, type: 3}
+  m_PrefabInstance: {fileID: 1826644661}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6fd6ae58e0fbb46ac8ed45a7f623f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &796129664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3899513780813819575, guid: 5928e6aef33ce9e45b5b48180ae895de, type: 3}
+  m_PrefabInstance: {fileID: 1985859149}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1255604897
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +458,8 @@ MonoBehaviour:
   - {x: 9, y: -4, z: 0}
   timeSinceWaveStart: 0
   campaignLogicScript: {fileID: 1924683006}
+  numAliveZombies: 0
+  doneSpawning: 0
 --- !u!4 &1714482844
 Transform:
   m_ObjectHideFlags: 0
@@ -543,9 +561,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuScript: {fileID: 2092661070}
+  clearBoardPrefab: {fileID: 3899513780813819575, guid: 5928e6aef33ce9e45b5b48180ae895de, type: 3}
+  boardInstance: {fileID: 796129664}
+  initialBoardPos: {x: 0, y: 0, z: 0}
+  coinScript: {fileID: 283756929}
   spawnerScript: {fileID: 1714482843}
-  numAliveZombies: 0
-  doneSpawning: 0
 --- !u!4 &1924683007
 Transform:
   m_ObjectHideFlags: 0
