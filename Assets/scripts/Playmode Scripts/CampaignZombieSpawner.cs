@@ -24,24 +24,42 @@ public class CampaignZombieSpawner : ZombieSpawner
     // TODO determine game over / wave complete here
     public CampaignLogicHandler campaignLogicScript;
 
+    // number of zombies currently alive
+    public int numAliveZombies;
+
+    // whether or not the zombie spawner is done spawning
+    public bool doneSpawning;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        LoadNextWave();
+    }
+
+    public void LoadNextWave(){
         // TODO extend this to a chosen campaign wave, rather than preset
         // get the wave contents for the current wave number
-        spawnObjects = GetWaveContents(SaveObject.maxCampaignWave);
+        spawnObjects = GetWaveContents(SaveObject.maxCampaignWave+1);
 
         // first zombie index is 0
         nextSpawnIndex = 0;
         nextSpawnObject = spawnObjects[0];
         nextSpawnTime = nextSpawnObject.spawnTime;
+
+        // wave just started, so set time to 0
+        timeSinceWaveStart = 0;
+
+        // start of wave -> move zombies to spawn
+        doneSpawning = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         // if there are more zombies to spawn
-        if(!campaignLogicScript.doneSpawning){
+        if(!doneSpawning){
 
             // increment timer
             timeSinceWaveStart += Time.deltaTime;
@@ -57,13 +75,13 @@ public class CampaignZombieSpawner : ZombieSpawner
 
                     // increment number of zombies that are alive
                     // TODO move this logic to this script, not campaign
-                    campaignLogicScript.numAliveZombies++;
+                    numAliveZombies++;
 
                     // if the last zombie was just spawned
                     if(++nextSpawnIndex == spawnObjects.Length){
                         
                         // we are now done spawning
-                        campaignLogicScript.doneSpawning = true;
+                        doneSpawning = true;
                         
                         // no more zombies to spawn
                         return;
@@ -73,12 +91,20 @@ public class CampaignZombieSpawner : ZombieSpawner
                     nextSpawnTime = nextSpawnObject.spawnTime; 
                 }
             }
+        } else if(numAliveZombies == 0){
+            campaignLogicScript.EndCurrentWave();
         }
     }
 
     public override void Spawn(){
-        // spawn                            next zombie's type,                 at the indicated location,              standing up straight
-        Instantiate(zombieSelectionArray[nextSpawnObject.zombieIndex], spawningLocations[nextSpawnObject.positionIndex], Quaternion.identity);
+        // spawn                                            next zombie's type,                 at the indicated location,              standing up straight,
+        GameObject go = Instantiate(zombieSelectionArray[nextSpawnObject.zombieIndex], spawningLocations[nextSpawnObject.positionIndex], Quaternion.identity);
+        
+        // attach and obtain reference to destroy listener on spawned zombie
+        CampaignZombieDestroyListener listener = go.AddComponent(typeof(CampaignZombieDestroyListener)) as CampaignZombieDestroyListener;
+
+        // set listener's spawner to this one, in order to ensure numAliveZombies decreases when zombie is destroyed.
+        listener.SetSpawner(this);
     }
 
 
@@ -87,13 +113,13 @@ public class CampaignZombieSpawner : ZombieSpawner
     // The returned object represents an array of zombie types, the position to spawn the zombie at, and the time to spawn said zombie, in that order.
     
     // Ex.              new CampaignSpawnObject(0, 1, 0.0f)
-    // Ex. spawn the first zombie in this spawner's array of zombies to spawn,
-    // Ex. at the second position in this spawner's array of positions,
-    // Ex. at time = 0.0f.
+    // Ex. spawn the first (index 0) zombie in this spawner's array of zombies to spawn,
+    // Ex. at the second (index 1) position in this spawner's array of positions,
+    // Ex. at time = 0.0.
 
     public CampaignSpawnObject[] GetWaveContents(int index){
         switch(index){
-            case 0:
+            case 1:
                 return new CampaignSpawnObject[]{
                     new CampaignSpawnObject(0, 1, 0.0f),
                     new CampaignSpawnObject(0, 1, 2.0f),
