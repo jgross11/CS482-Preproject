@@ -38,8 +38,9 @@ public class CampaignLogicHandler : MonoBehaviour
     // handles all logic necessary to mark the end of the current wave
     public void EndCurrentWave(){
 
-        // increment max campaign wave in save file
+        // increment max campaign wave in save file, save changes to disk
         PlayerPrefs.SetInt(SaveObject.MAX_CAMPAIGN_WAVE, ++SaveObject.maxCampaignWave);
+        PlayerPrefs.Save();
         
         // reset board to blank
         Destroy(boardInstance);
