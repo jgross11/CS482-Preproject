@@ -510,7 +510,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1939859921}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6775524409469361598, guid: 76e401dc57a8120428037e57cc5bf7b3, type: 3}
+        m_TargetAssemblyTypeName: SceneTransitioner, Assembly-CSharp
+        m_MethodName: Transition
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Action Menu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7583458336396989820, guid: e25249355b585cc42a9bd145eaced026, type: 3}
+        m_TargetAssemblyTypeName: IOManager, Assembly-CSharp
+        m_MethodName: SaveToPlayerPreferences
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1939859921
 MonoBehaviour:
   m_ObjectHideFlags: 0
