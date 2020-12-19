@@ -38,6 +38,18 @@ public class playMenuHandler : MonoBehaviour
 
         // create preview of each available employee type
         // in the header menu
+        CreateTowerPreview();
+        
+
+        // no tower is initially selected
+        selectedSlotIndex = -1;
+
+        // compute initial affordability
+        RefreshAffordableTowers();
+    }
+
+    // updates tower menu to display the sprites of available towers
+    public void CreateTowerPreview(){
         for(int i = 0; i < availableEmployees.Length; i++)
         {
             // reference to employee in array
@@ -49,12 +61,6 @@ public class playMenuHandler : MonoBehaviour
             // set menu sprite to this employee's sprite
             slot.GetComponent<SpriteRenderer>().sprite = go.GetComponent<SpriteRenderer>().sprite;
         }
-
-        // no tower is initially selected
-        selectedSlotIndex = -1;
-
-        // compute initial affordability
-        RefreshAffordableTowers();
     }
     
     /*
