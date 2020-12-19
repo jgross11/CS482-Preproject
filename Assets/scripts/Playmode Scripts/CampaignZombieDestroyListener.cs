@@ -12,8 +12,8 @@ public class CampaignZombieDestroyListener : MonoBehaviour
 
     void OnDestroy(){
         
-        // if reference is valid
-        if(spawnerScript != null){
+        // if reference is valid and [want to prevent bug upon resetting wave]
+        if(spawnerScript != null && spawnerScript.numAliveZombies > 0){
             
             // decrement the number of alive zombies from this spawner
             spawnerScript.numAliveZombies--;
