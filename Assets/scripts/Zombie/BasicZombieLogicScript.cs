@@ -36,14 +36,12 @@ public class BasicZombieLogicScript : ZombieLogicScript
     // determines way in which zombie acts
     public override void Act(){
         if(employeeScript != null){
-            Debug.Log("acting");
             employeeScript.TakeDamage(value);
         }
     }
 
     void OnTriggerEnter2D(Collider2D col){
         if(actionTarget == null && col.tag == "employee"){
-            Debug.Log("obtained employee target");
             actionTarget = col.gameObject;
             employeeScript = actionTarget.GetComponent<Employee>();
         }
@@ -51,14 +49,12 @@ public class BasicZombieLogicScript : ZombieLogicScript
 
     void OnTriggerExit2D(Collider2D col){
         if(actionTarget == null && col.gameObject == actionTarget){
-            Debug.Log("lost employee target");
             actionTarget = null;
             employeeScript = null;
         }
     }
     void OnTriggerStay2D(Collider2D col){
         if(actionTarget == null && col.tag == "employee"){
-            Debug.Log("obtained employee target");
             actionTarget = col.gameObject;
             employeeScript = actionTarget.GetComponent<Employee>();
         }
