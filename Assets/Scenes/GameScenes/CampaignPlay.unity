@@ -211,6 +211,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6fd6ae58e0fbb46ac8ed45a7f623f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &639360338 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1781387149913013260, guid: 4c9c14b29a99dac4b91df2a72d60b379, type: 3}
+  m_PrefabInstance: {fileID: 1536905834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &796129664 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3899513780813819575, guid: 5928e6aef33ce9e45b5b48180ae895de, type: 3}
@@ -468,6 +473,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7434172661407907666, guid: 4c9c14b29a99dac4b91df2a72d60b379, type: 3}
+      propertyPath: m_Name
+      value: Coin Text
+      objectReference: {fileID: 0}
     - target: {fileID: 7434172661407907669, guid: 4c9c14b29a99dac4b91df2a72d60b379, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.67172
@@ -610,6 +619,7 @@ MonoBehaviour:
   timeSinceWaveStart: 0
   campaignLogicScript: {fileID: 1924683006}
   numAliveZombies: 0
+  nextZombieText: {fileID: 1905852125}
   doneSpawning: 0
 --- !u!4 &1714482844
 Transform:
@@ -682,6 +692,99 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55b12d44c82604e4f8ffdbcda3f99d8c, type: 3}
+--- !u!1 &1905852124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1905852128}
+  - component: {fileID: 1905852127}
+  - component: {fileID: 1905852125}
+  - component: {fileID: 1905852126}
+  m_Layer: 5
+  m_Name: Next Zombie Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1905852125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905852124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 29
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Next zombie in x sec
+--- !u!114 &1905852126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905852124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb160c5df1de9b4ebca95be0fed9608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 0}
+--- !u!222 &1905852127
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905852124}
+  m_CullTransparentMesh: 0
+--- !u!224 &1905852128
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905852124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.67172, y: 0.67172, z: 0.67172}
+  m_Children: []
+  m_Father: {fileID: 639360338}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 330, y: 228.74}
+  m_SizeDelta: {x: 376.28772, y: 142.51677}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1924683005
 GameObject:
   m_ObjectHideFlags: 0
