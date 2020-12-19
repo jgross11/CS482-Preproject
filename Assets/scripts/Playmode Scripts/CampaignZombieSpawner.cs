@@ -141,10 +141,71 @@ public class CampaignZombieSpawner : ZombieSpawner
             case 1:
                 return new CampaignSpawnObject[]{
                     new CampaignSpawnObject(0, 1, 0.0f),
+                    new CampaignSpawnObject(0, 1, 3.0f),
+                    new CampaignSpawnObject(0, 1, 6.0f),
+                    new CampaignSpawnObject(0, 1, 9.0f)
+                    };
+            case 2:
+                return new CampaignSpawnObject[]{
+                    new CampaignSpawnObject(0, 1, 0.0f),
                     new CampaignSpawnObject(0, 1, 2.0f),
                     new CampaignSpawnObject(0, 1, 4.0f),
-                    new CampaignSpawnObject(0, 1, 5.0f)
+                    new CampaignSpawnObject(0, 1, 6.0f),
+                    new CampaignSpawnObject(0, 2, 6.0f),
+                    new CampaignSpawnObject(0, 2, 8.0f),
+                    new CampaignSpawnObject(0, 2, 10.0f),
+                    new CampaignSpawnObject(0, 2, 12.0f)
                     };
+            case 3:
+                return new CampaignSpawnObject[]{
+                    new CampaignSpawnObject(0, 1, 0.0f),
+                    new CampaignSpawnObject(0, 1, 1.5f),
+                    new CampaignSpawnObject(0, 1, 3.0f),
+                    new CampaignSpawnObject(0, 1, 4.5f),
+                    new CampaignSpawnObject(0, 2, 4.5f),
+                    new CampaignSpawnObject(0, 1, 6.0f),
+                    new CampaignSpawnObject(0, 2, 6.0f),
+                    new CampaignSpawnObject(0, 1, 7.0f),
+                    new CampaignSpawnObject(0, 2, 7.0f),
+                    new CampaignSpawnObject(0, 1, 8.0f),
+                    new CampaignSpawnObject(0, 2, 8.0f)
+                    };
+            case 4:
+                return new CampaignSpawnObject[]{
+                    new CampaignSpawnObject(0, 1, 0.0f),
+                    new CampaignSpawnObject(0, 2, 0.0f),
+                    new CampaignSpawnObject(0, 3, 0.0f),
+                    new CampaignSpawnObject(0, 1, 4.0f),
+                    new CampaignSpawnObject(0, 2, 4.0f),
+                    new CampaignSpawnObject(0, 3, 4.0f),
+                    new CampaignSpawnObject(0, 1, 7.0f),
+                    new CampaignSpawnObject(0, 2, 7.0f),
+                    new CampaignSpawnObject(0, 3, 7.0f),
+                    new CampaignSpawnObject(0, 1, 10.0f),
+                    new CampaignSpawnObject(0, 2, 10.0f),
+                    new CampaignSpawnObject(0, 3, 10.0f),
+                    new CampaignSpawnObject(0, 1, 12.0f),
+                    new CampaignSpawnObject(0, 2, 12.0f),
+                    new CampaignSpawnObject(0, 3, 12.0f),
+                    new CampaignSpawnObject(0, 1, 14.0f),
+                    new CampaignSpawnObject(0, 2, 14.0f),
+                    new CampaignSpawnObject(0, 3, 14.0f)
+                };
+            case 5:
+                return new CampaignSpawnObject[]{
+                    new CampaignSpawnObject(1, 3, 0.0f),
+                    new CampaignSpawnObject(0, 0, 0.0f),
+                    new CampaignSpawnObject(0, 3, 2.0f),
+                    new CampaignSpawnObject(0, 0, 4.0f),
+                    new CampaignSpawnObject(1, 3, 5.0f),
+                    new CampaignSpawnObject(1, 0, 5.0f),
+                    new CampaignSpawnObject(0, 1, 6.0f),
+                    new CampaignSpawnObject(1, 2, 6.0f),
+                    new CampaignSpawnObject(1, 2, 8.0f),
+                    new CampaignSpawnObject(1, 2, 9.0f),
+                    new CampaignSpawnObject(1, 1, 11.0f),
+                    new CampaignSpawnObject(0, 3, 11.0f)
+                };
             // secret mystery hell wave to punish your coding errors
             default:
                 return new CampaignSpawnObject[]{
