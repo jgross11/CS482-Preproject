@@ -591,6 +591,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombieSelectionArray:
   - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
+  - {fileID: 9155295579116168346, guid: e4bafe36747177f4db492b458dc7150f, type: 3}
+  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
+  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
+  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
+  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
+  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
+  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
+  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
+  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
+  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
+  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
   spawningLocations:
   - {x: 9, y: 2, z: 0}
   - {x: 9, y: 0, z: 0}
@@ -701,6 +712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuScript: {fileID: 2092661070}
+  allAvailableEmployees: []
   clearBoardPrefab: {fileID: 3899513780813819575, guid: 5928e6aef33ce9e45b5b48180ae895de, type: 3}
   boardInstance: {fileID: 796129664}
   initialBoardPos: {x: 0, y: 0, z: 0}
