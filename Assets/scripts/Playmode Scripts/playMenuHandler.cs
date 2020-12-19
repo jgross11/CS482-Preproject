@@ -168,6 +168,11 @@ public class playMenuHandler : MonoBehaviour
         return numberOfCoins;
     }
 
+    // set number of coins
+    public void SetCoins(int val){
+        numberOfCoins = val;
+    }
+
     // returns the selected employee prefab
     public GameObject GetSelectedEmployee(){
         return selectedEmployee;
