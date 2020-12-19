@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 // handles all spawning logic for the zombie spawner found in campaign mode
@@ -26,6 +28,9 @@ public class CampaignZombieSpawner : ZombieSpawner
 
     // number of zombies currently alive
     public int numAliveZombies;
+
+    // text that displays when next zombie is spawning
+    public Text nextZombieText;
 
     // whether or not the zombie spawner is done spawning
     public bool doneSpawning;
@@ -64,8 +69,8 @@ public class CampaignZombieSpawner : ZombieSpawner
         nextSpawnObject = spawnObjects[0];
         nextSpawnTime = nextSpawnObject.spawnTime;
 
-        // wave just started, so set time to 0
-        timeSinceWaveStart = 0;
+        // wave just started, so set time to -5 to allow defense building
+        timeSinceWaveStart = -5;
 
         numAliveZombies = 0;
 
@@ -93,7 +98,6 @@ public class CampaignZombieSpawner : ZombieSpawner
                     Spawn();
 
                     // increment number of zombies that are alive
-                    // TODO move this logic to this script, not campaign
                     numAliveZombies++;
 
                     // if the last zombie was just spawned
@@ -113,6 +117,9 @@ public class CampaignZombieSpawner : ZombieSpawner
         } else if(numAliveZombies == 0){
             campaignLogicScript.EndCurrentWave();
         }
+
+        // update next zombie text
+        nextZombieText.text = doneSpawning ? "Zombies remaining: " + numAliveZombies : "Next zombie in " + Math.Round(nextSpawnTime - timeSinceWaveStart, 1) + " sec";
     }
 
     public override void Spawn(){
