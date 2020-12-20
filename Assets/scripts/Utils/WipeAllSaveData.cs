@@ -7,14 +7,20 @@ public class WipeAllSaveData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
-        Debug.Log("Player prefs wiped!");
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public static void WipeData(){
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        IOManager.LoadFromPlayerPreferences();
+        Debug.Log("Player prefs wiped!");
+        GameObject.Find("Main Camera").GetComponent<ActionMenuHandler>().Reset();
     }
 }
