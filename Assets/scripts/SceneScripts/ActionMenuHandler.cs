@@ -17,7 +17,7 @@ public class ActionMenuHandler : MonoBehaviour
     void Start()
     {
         // swarm button unlocked once a certain campaign wave has been reached
-        swarmButton.interactable = SaveObject.maxCampaignWave > 40;
+        swarmButton.interactable = SaveObject.maxCampaignWave > 39;
 
         // reserach button unlocked once a certain swam wave has been reached
         researchButton.interactable = SaveObject.maxSwarmWave > 20;
@@ -26,5 +26,9 @@ public class ActionMenuHandler : MonoBehaviour
         userInfoText.text = "\nHappiness currency count: " + SaveObject.numHappiness;
         userInfoText.text += "\nHighest campaign wave: " + SaveObject.maxCampaignWave;
         userInfoText.text += "\nHighest swarm wave: " + SaveObject.maxSwarmWave;
+    }
+
+    public void Reset(){
+        Start();
     }
 }
