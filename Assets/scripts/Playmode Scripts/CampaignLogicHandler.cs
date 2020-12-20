@@ -87,7 +87,7 @@ public class CampaignLogicHandler : MonoBehaviour
         boardInstance = Instantiate(clearBoardPrefab, initialBoardPos, Quaternion.identity);
 
         // calculate and reveal appropriate towers in menu
-        menuScript.availableEmployees = TrimAvailableEmployees(SaveObject.maxCampaignWave / 5 + 1);
+        menuScript.availableEmployees = SaveObject.maxCampaignWave / 5 + 1 > allAvailableEmployees.Length ? allAvailableEmployees : TrimAvailableEmployees(SaveObject.maxCampaignWave / 5 + 1);
         menuScript.CreateTowerPreview();
 
         // reset coin spawn timer
