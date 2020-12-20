@@ -194,6 +194,14 @@ PrefabInstance:
       propertyPath: availableEmployees.Array.data[3]
       value: 
       objectReference: {fileID: 5482348889610775115, guid: 84f51fcc55f203044a2d4218435cfff3, type: 3}
+    - target: {fileID: 7144377655123623619, guid: b01c8097887e1b04588650a850b5788f, type: 3}
+      propertyPath: availableEmployees.Array.data[4]
+      value: 
+      objectReference: {fileID: 7307688884928173380, guid: 8d2c853fc4b66e94593c5492e0eda557, type: 3}
+    - target: {fileID: 7144377655123623619, guid: b01c8097887e1b04588650a850b5788f, type: 3}
+      propertyPath: availableEmployees.Array.data[5]
+      value: 
+      objectReference: {fileID: 8536638313075684933, guid: 1c7941c2fae3a7f4da84bd1f91a96cdd, type: 3}
     - target: {fileID: 7144377655123623628, guid: b01c8097887e1b04588650a850b5788f, type: 3}
       propertyPath: m_Name
       value: tower-menu-background
@@ -895,6 +903,7 @@ GameObject:
   - component: {fileID: 2001623731}
   - component: {fileID: 2001623732}
   - component: {fileID: 2001623733}
+  - component: {fileID: 2001623734}
   m_Layer: 0
   m_Name: Game Over Collider Object
   m_TagString: Untagged
@@ -955,6 +964,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callback: {fileID: 1924683006}
+--- !u!50 &2001623734
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001623730}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 2
 --- !u!114 &2092661070 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7144377655123623619, guid: b01c8097887e1b04588650a850b5788f, type: 3}
