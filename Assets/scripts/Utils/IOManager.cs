@@ -31,7 +31,7 @@ public class IOManager : MonoBehaviour
     public static void LoadFromPlayerPreferences(){
 
         // determine if save data exists
-        saveDataExists = PlayerPrefs.HasKey(SaveObject.HAPPINESS);
+        saveDataExists = PlayerPrefs.HasKey(SaveObject.MAX_CAMPAIGN_WAVE);
 
         // TODO get all save data attributes here...
         SaveObject.numHappiness = PlayerPrefs.GetInt(SaveObject.HAPPINESS, 0);
