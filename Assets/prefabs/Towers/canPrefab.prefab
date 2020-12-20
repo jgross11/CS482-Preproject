@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2046822241852832868}
   - component: {fileID: -2694720825082960587}
   - component: {fileID: -7194787202266632484}
+  - component: {fileID: 21301242813283821}
   m_Layer: 0
   m_Name: canPrefab
   m_TagString: Untagged
@@ -153,3 +154,24 @@ PolygonCollider2D:
       - {x: 0.17999999, y: -2.02}
       - {x: 0.41, y: -1.9399999}
       - {x: 0.63, y: -1.8}
+--- !u!50 &21301242813283821
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9119401295195313280}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 2
