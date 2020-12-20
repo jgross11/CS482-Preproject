@@ -79,7 +79,15 @@ public class Zombie : MonoBehaviour
         }
     }
 
+    // heals zombie by given amount
+    // and handles overheal case, if necessary
+    public void Heal(int value){
+        currentHealth += value;
 
+        if(currentHealth > maxHealth){
+            currentHealth = maxHealth;
+        }
+    }
 
 
 }
