@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8239894893703321048}
   - component: {fileID: 5262004545460333590}
   - component: {fileID: 5262004545460333591}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: produce-tower
   m_TagString: employee
   m_Icon: {fileID: 0}
@@ -101,6 +101,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   attack: 1
+  baseAttack: 0
   level: 1
   experience: 0
   experienceForNextLevel: 10
@@ -226,7 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8239894894164950486}
   - component: {fileID: 297738878341637022}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: produce-action-object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
