@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2329154543613915307}
   - component: {fileID: 2329154543613915308}
   - component: {fileID: 2329154543613915309}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: butcher-action-object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,6 +217,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   attack: 1
+  baseAttack: 0
   level: 1
   experience: 0
   experienceForNextLevel: 10
