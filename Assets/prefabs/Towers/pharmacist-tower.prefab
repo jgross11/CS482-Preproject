@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8536638313075684932}
   - component: {fileID: 5559591140027993994}
   - component: {fileID: 5559591140027993995}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pharmacist-tower
   m_TagString: employee
   m_Icon: {fileID: 0}
@@ -101,6 +101,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   attack: 1
+  baseAttack: 0
   level: 1
   experience: 0
   experienceForNextLevel: 10
@@ -226,7 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8536638314741096010}
   - component: {fileID: 5559591140473438337}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pharmacist-action-object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
