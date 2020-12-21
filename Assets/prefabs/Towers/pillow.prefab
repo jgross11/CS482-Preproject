@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 12
-  currentHealth: 9
+  currentHealth: 12
   attack: 0
   level: 1
   experience: 0

@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4d6ef229e0514438df66f76931e024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pillow: {fileID: 1266251826719581086, guid: 30fd7c46105915a498066ba4bbbac5af, type: 3}
 --- !u!1 &7307688884928173380
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,11 +270,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 20
-  attack: 0
+  attack: 5
   level: 1
   experience: 5
   experienceForNextLevel: 10
   cost: 2
-  timeBetweenActions: 0
+  timeBetweenActions: 2
   type: 
-  actionCooldown: 0
+  actionCooldown: 2

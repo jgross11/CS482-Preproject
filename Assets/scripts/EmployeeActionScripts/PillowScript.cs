@@ -20,8 +20,8 @@ public class PillowScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 9;
-        maxHealth = 12;
+        health = this.gameObject.GetComponent<Employee>().currentHealth;
+        maxHealth = this.gameObject.GetComponent<Employee>().maxHealth;
         ChangeSprite(2);
     }
 
@@ -30,11 +30,6 @@ public class PillowScript : MonoBehaviour
     {
 
         health = this.gameObject.GetComponent<Employee>().currentHealth;
-
-        if (health >= maxHealth)
-        {
-            health = maxHealth;
-        }
 
         if (health >= 6)
         {

@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class FurnitureActionScript : ActionScript
 {
-   
+
+    //bool so that pillow is only spawned once
+    private bool spawnPillow = true;
+
+    //pillow game object
+    public GameObject pillow;
+
+    private GameObject myPillow;
 
     public override bool CanAct()
     {
@@ -14,10 +21,20 @@ public class FurnitureActionScript : ActionScript
     public override void Act(int attack)
     {
 
-        //not sure if we want to implement some form of attack, PvZ's wall does no damage.
-        //We could possibly do something similar to the pharmacist where, rather than the tower itself being the wall
-        //he throws 2 or 3 pillows with x amount of health on them out in front, and thats what the zombies need to get through...
-        //this seems to present itself with some....issues though....we can discuss it later
+        if (spawnPillow) {
+            myPillow = Instantiate(pillow, transform.position + new Vector3(1, 0, 0), transform.rotation);
+            spawnPillow = false;
+        }
+
+        if (!spawnPillow && myPillow != null)
+        {
+
+            Debug.Log(myPillow.gameObject.GetComponent<Employee>().currentHealth);
+
+            myPillow.gameObject.GetComponent<Employee>().Heal(attack);
+
+            Debug.Log(myPillow.gameObject.GetComponent<Employee>().currentHealth);
+        }
 
     }
 }
