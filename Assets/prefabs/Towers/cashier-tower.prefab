@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4278307489739157256}
   - component: {fileID: 4278307489739157367}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: cashier-action-object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4278307491272967942}
   - component: {fileID: -3177345849070487559}
   - component: {fileID: 7257338365756458729}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cashier-tower
   m_TagString: employee
   m_Icon: {fileID: 0}
@@ -145,6 +145,7 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 5
   attack: 1
+  baseAttack: 0
   level: 1
   experience: 0
   experienceForNextLevel: 10
