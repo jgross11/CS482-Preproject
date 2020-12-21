@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5946747180468559995}
   - component: {fileID: -2984630592135744981}
   - component: {fileID: 3106227209596436590}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: vending_machine_prefab
   m_TagString: employee
   m_Icon: {fileID: 0}
@@ -101,12 +101,13 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 4
   attack: 3
+  baseAttack: 0
   level: 1
   experience: 3
   experienceForNextLevel: 10
   cost: 2
   timeBetweenActions: 1
-  type: 
+  type: vending machine
   actionCooldown: 0
 --- !u!60 &-2984630592135744981
 PolygonCollider2D:
@@ -266,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7818019602182281985}
   - component: {fileID: 7818019602182281984}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: vending-machine-action-object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
