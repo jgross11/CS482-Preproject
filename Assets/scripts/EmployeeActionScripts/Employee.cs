@@ -5,7 +5,7 @@ using UnityEngine;
 public class Employee : MonoBehaviour
 {
 
-    public int maxHealth, currentHealth, attack, level, experience, experienceForNextLevel, cost;
+    public int maxHealth, currentHealth, attack, baseAttack, level, experience, experienceForNextLevel, cost;
     public float timeBetweenActions;
     private bool isActive;
     public string type;
@@ -25,6 +25,9 @@ public class Employee : MonoBehaviour
 
         // initially has full health
         currentHealth = maxHealth;
+
+        //base attack is used to store the original attack value before any stat update occurs by Manager or other tower
+        baseAttack = attack;
     }
 
     // Update is called once per frame
