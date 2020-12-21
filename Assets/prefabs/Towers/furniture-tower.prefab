@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3645603864090694794}
   - component: {fileID: 715741459912024002}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: furniture-action-object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 7207231730162763929}
   - component: {fileID: 4507356864203716972}
   - component: {fileID: 5193963467200623081}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: furniture-tower
   m_TagString: employee
   m_Icon: {fileID: 0}
@@ -271,10 +271,11 @@ MonoBehaviour:
   maxHealth: 20
   currentHealth: 20
   attack: 5
+  baseAttack: 0
   level: 1
   experience: 5
   experienceForNextLevel: 10
   cost: 2
   timeBetweenActions: 2
-  type: 
+  type: furniture
   actionCooldown: 2
