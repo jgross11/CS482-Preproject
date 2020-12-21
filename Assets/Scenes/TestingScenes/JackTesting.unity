@@ -335,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7144377655123623619, guid: b01c8097887e1b04588650a850b5788f, type: 3}
       propertyPath: availableEmployees.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7144377655123623619, guid: b01c8097887e1b04588650a850b5788f, type: 3}
       propertyPath: availableEmployees.Array.data[0]
@@ -357,6 +357,10 @@ PrefabInstance:
       propertyPath: availableEmployees.Array.data[4]
       value: 
       objectReference: {fileID: 7307688884928173380, guid: 8d2c853fc4b66e94593c5492e0eda557, type: 3}
+    - target: {fileID: 7144377655123623619, guid: b01c8097887e1b04588650a850b5788f, type: 3}
+      propertyPath: availableEmployees.Array.data[5]
+      value: 
+      objectReference: {fileID: 7382528631669526320, guid: 9beb49ae4a6e9ca4d9ba694731058941, type: 3}
     - target: {fileID: 7144377655123623628, guid: b01c8097887e1b04588650a850b5788f, type: 3}
       propertyPath: m_Name
       value: tower-menu-background
