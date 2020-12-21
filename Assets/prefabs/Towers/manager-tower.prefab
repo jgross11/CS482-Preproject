@@ -145,13 +145,12 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 5
   attack: 2
-  baseAttack: 0
   level: 1
   experience: 1
   experienceForNextLevel: 10
   cost: 2
   timeBetweenActions: 2
-  type: manager
+  type: boost
   actionCooldown: 2
 --- !u!60 &4023068573205853584
 PolygonCollider2D:
