@@ -20,6 +20,8 @@ public class PillowScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        //set this health to the health of the pillow, and the original sprite to the first sprite
         health = this.gameObject.GetComponent<Employee>().currentHealth;
         maxHealth = this.gameObject.GetComponent<Employee>().maxHealth;
         ChangeSprite(2);
@@ -29,8 +31,10 @@ public class PillowScript : MonoBehaviour
     void Update()
     {
 
+        //update this health based on the new health
         health = this.gameObject.GetComponent<Employee>().currentHealth;
 
+        //change the sprite based on its health
         if (health >= 6)
         {
             ChangeSprite(2);
@@ -43,7 +47,7 @@ public class PillowScript : MonoBehaviour
         }
 
         
-
+        //destory the object if its health is at 0
         if (health <= 0)
         {
             Destroy(this.gameObject);
@@ -51,6 +55,7 @@ public class PillowScript : MonoBehaviour
     }
 
 
+    //function to change the sprite of the pillow
     void ChangeSprite(int i)
     {
         spriteRenderer.sprite = spriteArray[i]; 

@@ -21,19 +21,16 @@ public class FurnitureActionScript : ActionScript
     public override void Act(int attack)
     {
 
+        //only spawn the pillow 1 time
         if (spawnPillow) {
             myPillow = Instantiate(pillow, transform.position + new Vector3(1, 0, 0), transform.rotation);
             spawnPillow = false;
         }
 
+        //heal the pillow while the pillow exists
         if (!spawnPillow && myPillow != null)
         {
-
-            Debug.Log(myPillow.gameObject.GetComponent<Employee>().currentHealth);
-
             myPillow.gameObject.GetComponent<Employee>().Heal(attack);
-
-            Debug.Log(myPillow.gameObject.GetComponent<Employee>().currentHealth);
         }
 
     }
