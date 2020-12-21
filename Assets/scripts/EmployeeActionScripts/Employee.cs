@@ -5,15 +5,18 @@ using UnityEngine;
 public class Employee : MonoBehaviour
 {
 
-    public int maxHealth, currentHealth, attack, baseAttack, level, experience, experienceForNextLevel, cost;
+    public int maxHealth, currentHealth, attack, level, experience, experienceForNextLevel, cost;
     public float timeBetweenActions;
     private bool isActive;
     public string type;
 
+
     // unity doesn't like inheritance, so cannot be directly assigned
     private ActionScript actionScript;
-    public float actionCooldown; 
+    public float actionCooldown;
 
+    //a radius value is now needed, should be updated if another boost tower is implemented with a larger radius than this, although, a radius of 5 seems to work well
+    private int radiusForBoost = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +29,21 @@ public class Employee : MonoBehaviour
         // initially has full health
         currentHealth = maxHealth;
 
-        //base attack is used to store the original attack value before any stat update occurs by Manager or other tower
-        baseAttack = attack;
+
+        //raycast to find any boost towers in a specific radius of the new towers position
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, radiusForBoost, Vector3.right, Mathf.Infinity, 1 << LayerMask.NameToLayer("employee"));
+
+        //adds the boost to the attack value of the new tower for all boost towers already placed within a radius
+        foreach(RaycastHit2D h in hits)
+        {
+            if(h.collider.gameObject.GetComponent<Employee>().type == "boost" && type != "boost")
+            {
+                attack += h.collider.gameObject.GetComponent<Employee>().attack;
+
+            }
+        }
+
+
     }
 
     // Update is called once per frame

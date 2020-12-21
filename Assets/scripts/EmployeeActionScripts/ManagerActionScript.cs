@@ -15,34 +15,46 @@ public class ManagerActionScript : ActionScript
         return true;
     }
 
+   
+    
+    void Start()
+    {
+        //finds all objects on the employee layer
+        hits = Physics2D.CircleCastAll(transform.position, radius, Vector3.right, Mathf.Infinity, 1 << LayerMask.NameToLayer("employee"));
+
+        int attack = this.transform.parent.gameObject.GetComponent<Employee>().attack;
+
+        //adds the boost to all non boost types
+        foreach (RaycastHit2D h in hits)
+        {
+            if (h.collider.tag == "employee" && h.collider.gameObject.GetComponent<Employee>().type != "boost")
+            {
+                h.collider.gameObject.GetComponent<Employee>().attack += attack;
+            }
+        }
+    }
+    
+    
+    
+    
     public override void Act(int attack)
     {
 
-        hits = Physics2D.CircleCastAll(transform.position, radius, Vector3.right, Mathf.Infinity, 1 << LayerMask.NameToLayer("employee"));
-        int count = 0;
-        foreach(RaycastHit2D h in hits)
-        {
-
-            count++;
-            
-
-            if(h.collider.tag == "employee" && h.collider.gameObject.GetComponent<Employee>().type != "manager")
-            {
-                h.collider.gameObject.GetComponent<Employee>().attack = h.collider.gameObject.GetComponent<Employee>().baseAttack + attack;
-            }
-        }
-        Debug.Log(count);
     }
 
+
+    //when this tower is destroyed it will remove the boost from each tower it affected
     void OnDestroy()
     {
         hits = Physics2D.CircleCastAll(transform.position, radius, Vector3.right, Mathf.Infinity, 1 << LayerMask.NameToLayer("employee"));
 
-        foreach(RaycastHit2D h in hits)
+        int attack = this.transform.parent.gameObject.GetComponent<Employee>().attack;
+
+        foreach (RaycastHit2D h in hits)
         {
-            if (h.collider.tag == "employee")
+            if (h.collider.tag == "employee" && h.collider.gameObject.GetComponent<Employee>().type != "boost")
             {
-                h.collider.gameObject.GetComponent<Employee>().attack = h.collider.gameObject.GetComponent<Employee>().baseAttack;
+                h.collider.gameObject.GetComponent<Employee>().attack -= attack;
             }
         }
     }
