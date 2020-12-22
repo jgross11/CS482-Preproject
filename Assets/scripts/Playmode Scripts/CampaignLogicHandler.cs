@@ -100,6 +100,9 @@ public class CampaignLogicHandler : MonoBehaviour
             }
         }
 
+        // deselect selected employee
+        menuScript.SetSelectedEmployee(-1);
+
         // set number of coins to start with for next wave
         // TODO determine proper scaling function for coin count
         menuScript.SetCoins(10 + SaveObject.maxCampaignWave);
