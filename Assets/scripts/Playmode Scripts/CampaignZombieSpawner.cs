@@ -119,7 +119,7 @@ public class CampaignZombieSpawner : ZombieSpawner
         }
 
         // update next zombie text
-        nextZombieText.text = doneSpawning ? "Zombies remaining: " + numAliveZombies : "Next zombie in " + Math.Round(nextSpawnTime - timeSinceWaveStart, 1) + " sec";
+        nextZombieText.text = doneSpawning ? "Zombies remaining: " + (numAliveZombies < 0 ? 0 : numAliveZombies) : "Next zombie in " + (nextSpawnTime - timeSinceWaveStart < 0 ? 0.0f : Math.Round(nextSpawnTime - timeSinceWaveStart, 1)) + " sec";
     }
 
     public override void Spawn(){
@@ -311,7 +311,10 @@ public class CampaignZombieSpawner : ZombieSpawner
                     new CampaignSpawnObject(0, 0, 3.0f),
                     new CampaignSpawnObject(0, 1, 3.0f),
                     new CampaignSpawnObject(0, 2, 3.0f),
-                    new CampaignSpawnObject(0, 3, 3.0f) 
+                    new CampaignSpawnObject(0, 0, 10.0f),
+                    new CampaignSpawnObject(0, 1, 10.0f),
+                    new CampaignSpawnObject(0, 2, 10.0f),
+                    new CampaignSpawnObject(0, 3, 10.0f)
                 };
         }
     }
