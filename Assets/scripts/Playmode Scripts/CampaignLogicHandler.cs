@@ -34,6 +34,9 @@ public class CampaignLogicHandler : MonoBehaviour
     // used to obtain next wave contents
     public CampaignZombieSpawner spawnerScript;
 
+    // game over detection collider - disabled when one zombie triggers game over, reenabled after game over sequence
+    public Collider2D gameOverDetectorCollider;
+
     void Start(){
         // TODO determine what the scaling formula for tower unlocks in campaign mode is
         // allow only the appropriate employees to be used, more to be added as campaign progresses
@@ -57,17 +60,38 @@ public class CampaignLogicHandler : MonoBehaviour
     public void GameOver(){
 
         // TODO fancy game over animations here
+        StartCoroutine(GameOverAnimations());
+
+    }
+
+    public IEnumerator GameOverAnimations(){
         
+        // do any animations above, wait five (x) seconds, and then reset wave
+        yield return new WaitForSeconds(5);
+
         // reset board to start-of-wave state
         ResetWaveParameters();
 
         // reload current wave
         spawnerScript.LoadNextWave();
+
+        // reenable game over collider to detect game over for next wave
+        gameOverDetectorCollider.enabled = true;
     }
 
     // handles all logic necessary to mark the end of the current wave
     public void EndCurrentWave(){
+        StartCoroutine(EndCurrentWaveAnimations());
+    }
 
+    public IEnumerator EndCurrentWaveAnimations(){
+
+        // ensure wave / coin counter doesn't continuously increment
+        spawnerScript.numAliveZombies = -1;
+
+        // do any animations, sounds, etc. before this, wait five seconds, save and reset for next wave
+        yield return new WaitForSeconds(5);
+        
         // increment max campaign wave in save file, save changes to disk
         PlayerPrefs.SetInt(SaveObject.MAX_CAMPAIGN_WAVE, ++SaveObject.maxCampaignWave);
         PlayerPrefs.Save();
@@ -86,9 +110,17 @@ public class CampaignLogicHandler : MonoBehaviour
         Destroy(boardInstance);
         boardInstance = Instantiate(clearBoardPrefab, initialBoardPos, Quaternion.identity);
 
+        // deselect selected employee
+        menuScript.SetSelectedEmployee(-1);
+
+        // set number of coins to start with for next wave
+        // TODO determine proper scaling function for coin count
+        menuScript.SetCoins(10 + SaveObject.maxCampaignWave);
+
         // calculate and reveal appropriate towers in menu
         menuScript.availableEmployees = SaveObject.maxCampaignWave / 5 + 1 > allAvailableEmployees.Length ? allAvailableEmployees : TrimAvailableEmployees(SaveObject.maxCampaignWave / 5 + 1);
         menuScript.CreateTowerPreview();
+        menuScript.RefreshAffordableTowers();
 
         // reset coin spawn timer
         coinScript.currentTime = 0;
@@ -99,13 +131,6 @@ public class CampaignLogicHandler : MonoBehaviour
                 bamaOnBoard[i] = Instantiate(BAMAPrefab, bamaWomenPositions[i], Quaternion.identity);
             }
         }
-
-        // deselect selected employee
-        menuScript.SetSelectedEmployee(-1);
-
-        // set number of coins to start with for next wave
-        // TODO determine proper scaling function for coin count
-        menuScript.SetCoins(10 + SaveObject.maxCampaignWave);
     }
 
     // newIndexAmount - the upper index whose employee will be displayed. All higher-indice employees are locked

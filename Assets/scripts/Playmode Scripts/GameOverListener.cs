@@ -6,6 +6,7 @@ public class GameOverListener : MonoBehaviour
 {
     
     public CampaignLogicHandler callback;
+    public Collider2D myCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,12 @@ public class GameOverListener : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col){
         if(col.tag == "zombie"){
+            
+            // call game over in campaign logic
             callback.GameOver();
+
+            // disable collider temporarily so that more zombies don't trigger game over
+            myCollider.enabled = false;
         }
     }
 }

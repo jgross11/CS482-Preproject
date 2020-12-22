@@ -821,6 +821,7 @@ MonoBehaviour:
   BAMAPrefab: {fileID: 5371139042672803039, guid: b2627d0fe8b07694dbddd8e915ff2db0, type: 3}
   coinScript: {fileID: 283756929}
   spawnerScript: {fileID: 1714482843}
+  gameOverDetectorCollider: {fileID: 2001623732}
 --- !u!4 &1924683007
 Transform:
   m_ObjectHideFlags: 0
@@ -964,6 +965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callback: {fileID: 1924683006}
+  myCollider: {fileID: 2001623732}
 --- !u!50 &2001623734
 Rigidbody2D:
   serializedVersion: 4
