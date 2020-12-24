@@ -375,7 +375,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858601956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.879765, y: -0.94000006, z: 0}
+  m_LocalPosition: {x: 20.24, y: -0.94000006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -600,6 +600,7 @@ GameObject:
   - component: {fileID: 1713621586}
   - component: {fileID: 1713621585}
   - component: {fileID: 1713621584}
+  - component: {fileID: 1713621587}
   m_Layer: 0
   m_Name: Bottom Projectile Destroyer Object
   m_TagString: Untagged
@@ -653,12 +654,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713621583}
   m_LocalRotation: {x: -0, y: -0, z: 0.70710576, w: 0.70710784}
-  m_LocalPosition: {x: 0.32, y: -7.33, z: 0}
+  m_LocalPosition: {x: 0.32, y: -12.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!50 &1713621587
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713621583}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 2
 --- !u!1 &1714482842
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,10 +712,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombieSelectionArray:
   - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
-  - {fileID: 9155295579116168346, guid: e4bafe36747177f4db492b458dc7150f, type: 3}
-  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
-  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
-  - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
+  - {fileID: 7136927407584074210, guid: f2ce72484d3b9854286046eb3c3742d0, type: 3}
+  - {fileID: 2851592042636161056, guid: 14f5b97b92e24a141a08208068746ea7, type: 3}
+  - {fileID: 2532357178379776826, guid: 8f09126f5c28bab4ba19434a691e77fb, type: 3}
+  - {fileID: 4847939962699242711, guid: a1ce4d2a6161f594bbd2c4d47ea53a29, type: 3}
   - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
   - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
   - {fileID: 2438320953939928437, guid: 075fa033f5046714da311e094ff068c1, type: 3}
@@ -707,6 +729,7 @@ MonoBehaviour:
   - {x: 9, y: -2, z: 0}
   - {x: 9, y: -4, z: 0}
   timeSinceWaveStart: 0
+  nextSpawnIndex: 0
   campaignLogicScript: {fileID: 1924683006}
   numAliveZombies: 0
   nextZombieText: {fileID: 1905852125}
