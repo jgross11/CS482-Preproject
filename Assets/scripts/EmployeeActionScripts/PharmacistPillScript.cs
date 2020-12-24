@@ -52,9 +52,20 @@ public class PharmacistPillScript : MonoBehaviour
         // if pill is active
         if(isActive){
             
-            // move towards target and rotate for neat effect
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
-            transform.Rotate(Vector3.forward);
+            // destroy this pill if its target dies while it is moving to it
+            if(target == null){
+                Destroy(this.gameObject);
+            } else{
+                // move towards target and rotate for neat effect
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+                transform.Rotate(Vector3.forward);
+            }
+        } else{
+            // destroy this pill if the pharmacist who created it dies
+            // only wish to destroy it when not already in transit
+            if(parentScript == null){
+                Destroy(this.gameObject);
+            }
         }
 
         // otherwise if pill still needs to move towards desired position

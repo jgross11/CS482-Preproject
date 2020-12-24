@@ -8,6 +8,12 @@ public class PharmacistActionScript : ActionScript
     // tower to target when healing
     public GameObject target;
 
+    // target tower's employee script
+    private Employee targetScript;
+
+    // this tower's employee script
+    private Employee thisScript;
+
     // prefab for pill to create
     public GameObject pillPrefab;
 
@@ -34,6 +40,9 @@ public class PharmacistActionScript : ActionScript
         // reset isSelecting to false after a short period of time to circumvent
         // bug wherein placing this tower automatically selects it
         StartCoroutine(EnableSelection());
+
+        // used for sprite updating
+        thisScript = transform.parent.GetComponent<Employee>();
 
         // at start, no pills have been created
         pillsOut = 0;
@@ -85,7 +94,7 @@ public class PharmacistActionScript : ActionScript
                 if(target != null){
 
                     // undo graphical representation of selection on old tower
-                    targetSpriteRenderer.color = Color.white;
+                    targetScript.UpdateSprite();
                 }
 
                 // target becomes the newly selected tower
@@ -98,7 +107,7 @@ public class PharmacistActionScript : ActionScript
                 isSelecting = false;
 
                 // get target employee script
-                Employee targetScript = target.GetComponent<Employee>();
+                targetScript = target.GetComponent<Employee>();
 
                 // if the target is a pharmacist
                 if(targetScript.type == "pharmacist"){
@@ -122,12 +131,12 @@ public class PharmacistActionScript : ActionScript
 
             // if target exists and is not self, indicate both towers are selected
             if(target != null && target.gameObject != parentSpriteRenderer.gameObject){
-                targetSpriteRenderer.color = Color.red;
+                targetSpriteRenderer.color = Color.yellow;
                 parentSpriteRenderer.color = Color.cyan;
 
             // otherwise if target is self, indicate both selections simultaneously
             } else if(target.gameObject == parentSpriteRenderer.gameObject){
-                parentSpriteRenderer.color = Color.magenta;
+                parentSpriteRenderer.color = Color.green;
             }
             
             // otherwise no target exists, just indicate this tower is selected
@@ -137,9 +146,9 @@ public class PharmacistActionScript : ActionScript
 
         // otherwise, reset this and target tower's sprite to default
         } else{
-            parentSpriteRenderer.color = Color.white;
+            thisScript.UpdateSprite();
             if(target != null){
-                targetSpriteRenderer.color = Color.white;
+                targetScript.UpdateSprite();
             }
         }
     }
