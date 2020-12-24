@@ -9,6 +9,7 @@ public class Employee : MonoBehaviour
     public float timeBetweenActions;
     private bool isActive;
     public string type;
+    private SpriteRenderer sprite;
 
 
     // unity doesn't like inheritance, so cannot be directly assigned
@@ -43,7 +44,8 @@ public class Employee : MonoBehaviour
             }
         }
 
-
+        // obtain reference to this object's sprite
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -72,6 +74,9 @@ public class Employee : MonoBehaviour
         if(currentHealth < 1){
             Destroy(gameObject);
         }
+
+        // reindicate wellness level visually
+        UpdateSprite();
     }
 
     // handles addition of health by a given amount
@@ -79,6 +84,9 @@ public class Employee : MonoBehaviour
     public void Heal(int val){
         // TODO determine if overheal is okay
         currentHealth = currentHealth + val > maxHealth ? maxHealth : currentHealth + val;
+
+        // reindicate wellness level visually
+        UpdateSprite();
     }
 
     // handles experience gaining by a given amount
@@ -104,5 +112,10 @@ public class Employee : MonoBehaviour
         attack += 2;
         experienceForNextLevel = (int)(experienceForNextLevel * 1.1f) + 2;
     }   
+
+    // determines closeness to death of current employee and displays this visually
+    public void UpdateSprite(){
+        sprite.color = new Color(1.0f, (float) currentHealth / (float) maxHealth, (float) currentHealth / (float) maxHealth);
+    }
 
 }
