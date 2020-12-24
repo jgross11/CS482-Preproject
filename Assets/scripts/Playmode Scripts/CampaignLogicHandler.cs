@@ -13,6 +13,9 @@ public class CampaignLogicHandler : MonoBehaviour
     // the prefab for a blank board
     public GameObject clearBoardPrefab;
 
+    // game over splash screen
+    public GameObject gameOverGO;
+
     // the instance of the board to wipe
     public GameObject boardInstance;
 
@@ -66,6 +69,9 @@ public class CampaignLogicHandler : MonoBehaviour
 
     public IEnumerator GameOverAnimations(){
         
+        // move game over splash screen in front of camera
+        gameOverGO.transform.position += Vector3.forward;
+
         // do any animations above, wait five (x) seconds, and then reset wave
         yield return new WaitForSeconds(5);
 
@@ -77,6 +83,9 @@ public class CampaignLogicHandler : MonoBehaviour
 
         // reenable game over collider to detect game over for next wave
         gameOverDetectorCollider.enabled = true;
+
+        // move game over splash screen behind camera
+        gameOverGO.transform.position -= Vector3.forward;
     }
 
     // handles all logic necessary to mark the end of the current wave
