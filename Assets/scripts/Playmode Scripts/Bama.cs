@@ -25,7 +25,8 @@ public class Bama : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll){
         if(coll.tag == "zombie"){
             isActive = true;
-            Destroy(coll.gameObject);
+            // TODO update the damage amount accordingly
+            coll.gameObject.GetComponent<Zombie>().Damage(20);
         }
     }
 }
