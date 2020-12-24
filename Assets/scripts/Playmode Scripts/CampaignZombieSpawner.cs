@@ -8,12 +8,24 @@ using UnityEngine.UI;
 // handles all spawning logic for the zombie spawner found in campaign mode
 public class CampaignZombieSpawner : ZombieSpawner
 {
-    
+    // zombie type constants
+    private const int BASIC_INDEX = 0;
+    private const int TANK_INDEX = 1;
+    private const int HEALER_INDEX = 2;
+    private const int MINI_BOSS_INDEX = 3;
+    private const int BOSS_INDEX = 4;
+
+    // spawn position constants
+    private const int TOP = 0;
+    private const int MIDDLE_TOP = 1;
+    private const int MIDDLE_BOTTOM = 2;
+    private const int BOTTOM = 3;
+
     // contains zombie type, time, and position information 
     private CampaignSpawnObject[] spawnObjects;
 
     // index of next zombie to spawn in spawnObjects
-    private int nextSpawnIndex;
+    public int nextSpawnIndex;
 
     // time of next zombie to spawn in spawnObjects
     private float nextSpawnTime;
@@ -138,183 +150,193 @@ public class CampaignZombieSpawner : ZombieSpawner
     // This is going to be HUGE, but it follows a simple format
     // The returned object represents an array of zombie types, the position to spawn the zombie at, and the time to spawn said zombie, in that order.
     
-    // Ex.              new CampaignSpawnObject(0, 1, 0.0f)
-    // Ex. spawn the first (index 0) zombie in this spawner's array of zombies to spawn,
-    // Ex. at the second (index 1) position in this spawner's array of positions,
+    // Ex.              new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 0.0f)
+    // Ex. spawn the basic (index 0) zombie in this spawner's array of zombies to spawn,
+    // Ex. at the middle-top (index 1) position in this spawner's array of positions,
     // Ex. at time = 0.0.
 
     public CampaignSpawnObject[] GetWaveContents(int index){
+        CampaignSpawnObject[] result;
         switch(index){
             case 1:
-                return new CampaignSpawnObject[]{
-                    new CampaignSpawnObject(0, 1, 0.0f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 1, 6.0f),
-                    new CampaignSpawnObject(0, 1, 9.0f)
-                    };
+                result = new CampaignSpawnObject[16];
+                for(int i = 0; i < 16; i+=4){
+                    result[i] = new CampaignSpawnObject(BASIC_INDEX, TOP, 0.0f + (3 * i));
+                    result[i+1] = new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 3.0f + (3 * i));
+                    result[i+2] = new CampaignSpawnObject(BASIC_INDEX, MIDDLE_BOTTOM, 6.0f + (3 * i));
+                    result[i+3] = new CampaignSpawnObject(BASIC_INDEX, BOTTOM, 9.0f + (3 * i));
+                }
+                return result;
             case 2:
-                return new CampaignSpawnObject[]{
-                    new CampaignSpawnObject(0, 1, 0.0f),
-                    new CampaignSpawnObject(0, 1, 2.0f),
-                    new CampaignSpawnObject(0, 1, 4.0f),
-                    new CampaignSpawnObject(0, 1, 6.0f),
-                    new CampaignSpawnObject(0, 2, 6.0f),
-                    new CampaignSpawnObject(0, 2, 8.0f),
-                    new CampaignSpawnObject(0, 2, 10.0f),
-                    new CampaignSpawnObject(0, 2, 12.0f)
-                    };
+                result = new CampaignSpawnObject[32];
+                for(int i = 0; i < 32; i+=4){
+                    result[i] = new CampaignSpawnObject(BASIC_INDEX, TOP, 0.0f + (2.5f * i));
+                    result[i+1] = new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 2.5f + (2.5f * i));
+                    result[i+2] = new CampaignSpawnObject(BASIC_INDEX, MIDDLE_BOTTOM, 5.0f + (2.5f * i));
+                    result[i+3] = new CampaignSpawnObject(BASIC_INDEX, BOTTOM, 7.5f + (2.5f * i));
+                }
+                return result;
             case 3:
-                return new CampaignSpawnObject[]{
-                    new CampaignSpawnObject(0, 1, 0.0f),
-                    new CampaignSpawnObject(0, 1, 1.5f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 1, 4.5f),
-                    new CampaignSpawnObject(0, 2, 4.5f),
-                    new CampaignSpawnObject(0, 1, 6.0f),
-                    new CampaignSpawnObject(0, 2, 6.0f),
-                    new CampaignSpawnObject(0, 1, 7.0f),
-                    new CampaignSpawnObject(0, 2, 7.0f),
-                    new CampaignSpawnObject(0, 1, 8.0f),
-                    new CampaignSpawnObject(0, 2, 8.0f)
-                    };
+                result = new CampaignSpawnObject[50];
+                for(int i = 0; i < 20; i += 4){
+                    result[i] = new CampaignSpawnObject(BASIC_INDEX, TOP, 0.0f + (2.0f * i));
+                    result[i+1] = new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 2.0f + (2.0f * i));
+                    result[i+2] = new CampaignSpawnObject(BASIC_INDEX, MIDDLE_BOTTOM, 4.0f + (2.0f * i));
+                    result[i+3] = new CampaignSpawnObject(BASIC_INDEX, BOTTOM, 6.0f + (2.0f * i));
+                }
+                for(int i = 0; i < 20; i += 4){
+                    result[20+i] = new CampaignSpawnObject(BASIC_INDEX, TOP, 34.0f + (1.5f * i));
+                    result[20+i+1] = new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 36.0f + (1.5f * i));
+                    result[20+i+2] = new CampaignSpawnObject(BASIC_INDEX, MIDDLE_BOTTOM, 38.0f + (1.5f * i));
+                    result[20+i+3] = new CampaignSpawnObject(BASIC_INDEX, BOTTOM, 40.0f + (1.5f * i));
+                }
+                for(int i = 0; i < 8; i += 4){
+                    result[40+i] = new CampaignSpawnObject(BASIC_INDEX, TOP, 65.0f + (1.0f * i));
+                    result[40+i+1] = new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 66.0f + (1.0f * i));
+                    result[40+i+2] = new CampaignSpawnObject(BASIC_INDEX, MIDDLE_BOTTOM, 67.0f + (1.0f * i));
+                    result[40+i+3] = new CampaignSpawnObject(BASIC_INDEX, BOTTOM, 68.0f + (1.0f * i));
+                } 
+                result[48] = new CampaignSpawnObject(BASIC_INDEX, MIDDLE_BOTTOM, 105f);
+                result[49] = new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 105f);
+                return result; 
             case 4:
                 return new CampaignSpawnObject[]{
-                    new CampaignSpawnObject(0, 1, 0.0f),
-                    new CampaignSpawnObject(0, 2, 0.0f),
-                    new CampaignSpawnObject(0, 3, 0.0f),
-                    new CampaignSpawnObject(0, 1, 4.0f),
-                    new CampaignSpawnObject(0, 2, 4.0f),
-                    new CampaignSpawnObject(0, 3, 4.0f),
-                    new CampaignSpawnObject(0, 1, 7.0f),
-                    new CampaignSpawnObject(0, 2, 7.0f),
-                    new CampaignSpawnObject(0, 3, 7.0f),
-                    new CampaignSpawnObject(0, 1, 10.0f),
-                    new CampaignSpawnObject(0, 2, 10.0f),
-                    new CampaignSpawnObject(0, 3, 10.0f),
-                    new CampaignSpawnObject(0, 1, 12.0f),
-                    new CampaignSpawnObject(0, 2, 12.0f),
-                    new CampaignSpawnObject(0, 3, 12.0f),
-                    new CampaignSpawnObject(0, 1, 14.0f),
-                    new CampaignSpawnObject(0, 2, 14.0f),
-                    new CampaignSpawnObject(0, 3, 14.0f)
+                    new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 0.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, MIDDLE_BOTTOM, 0.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, BOTTOM, 0.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 4.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, MIDDLE_BOTTOM, 4.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, BOTTOM, 4.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 7.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, MIDDLE_BOTTOM, 7.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, BOTTOM, 7.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 10.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, MIDDLE_BOTTOM, 10.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, BOTTOM, 10.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 12.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, MIDDLE_BOTTOM, 12.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, BOTTOM, 12.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 14.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, MIDDLE_BOTTOM, 14.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, BOTTOM, 14.0f)
                 };
             case 5:
                 return new CampaignSpawnObject[]{
-                    new CampaignSpawnObject(1, 3, 0.0f),
-                    new CampaignSpawnObject(0, 0, 0.0f),
-                    new CampaignSpawnObject(0, 3, 2.0f),
-                    new CampaignSpawnObject(0, 0, 4.0f),
-                    new CampaignSpawnObject(1, 3, 5.0f),
-                    new CampaignSpawnObject(1, 0, 5.0f),
-                    new CampaignSpawnObject(0, 1, 6.0f),
-                    new CampaignSpawnObject(1, 2, 6.0f),
-                    new CampaignSpawnObject(1, 2, 8.0f),
-                    new CampaignSpawnObject(1, 2, 9.0f),
-                    new CampaignSpawnObject(1, 1, 11.0f),
-                    new CampaignSpawnObject(0, 3, 11.0f)
+                    new CampaignSpawnObject(MIDDLE_TOP, BOTTOM, 0.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, TOP, 0.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, BOTTOM, 2.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, TOP, 4.0f),
+                    new CampaignSpawnObject(MIDDLE_TOP, BOTTOM, 5.0f),
+                    new CampaignSpawnObject(MIDDLE_TOP, TOP, 5.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, MIDDLE_TOP, 6.0f),
+                    new CampaignSpawnObject(MIDDLE_TOP, MIDDLE_BOTTOM, 6.0f),
+                    new CampaignSpawnObject(MIDDLE_TOP, MIDDLE_BOTTOM, 8.0f),
+                    new CampaignSpawnObject(MIDDLE_TOP, MIDDLE_BOTTOM, 9.0f),
+                    new CampaignSpawnObject(MIDDLE_TOP, MIDDLE_TOP, 11.0f),
+                    new CampaignSpawnObject(BASIC_INDEX, BOTTOM, 11.0f)
                 };
             // secret mystery hell wave to punish your coding errors
             default:
                 return new CampaignSpawnObject[]{
-                    new CampaignSpawnObject(0, 0, 0.0f),
-                    new CampaignSpawnObject(0, 1, 0.0f),
-                    new CampaignSpawnObject(0, 2, 0.0f),
-                    new CampaignSpawnObject(0, 3, 0.0f),
-                    new CampaignSpawnObject(0, 0, 0.2f),
-                    new CampaignSpawnObject(0, 1, 0.2f),
-                    new CampaignSpawnObject(0, 2, 0.2f),
-                    new CampaignSpawnObject(0, 3, 0.2f),
-                    new CampaignSpawnObject(0, 0, 0.4f),
-                    new CampaignSpawnObject(0, 1, 0.4f),
-                    new CampaignSpawnObject(0, 2, 0.4f),
-                    new CampaignSpawnObject(0, 3, 0.4f),
-                    new CampaignSpawnObject(0, 0, 0.6f),
-                    new CampaignSpawnObject(0, 1, 0.6f),
-                    new CampaignSpawnObject(0, 2, 0.6f),
-                    new CampaignSpawnObject(0, 3, 0.6f),
-                    new CampaignSpawnObject(0, 0, 0.8f),
-                    new CampaignSpawnObject(0, 1, 0.8f),
-                    new CampaignSpawnObject(0, 2, 0.8f),
-                    new CampaignSpawnObject(0, 3, 0.8f),
-                    new CampaignSpawnObject(0, 0, 1.0f),
-                    new CampaignSpawnObject(0, 1, 1.0f),
-                    new CampaignSpawnObject(0, 2, 1.0f),
-                    new CampaignSpawnObject(0, 3, 1.0f),
-                    new CampaignSpawnObject(0, 0, 1.2f),
-                    new CampaignSpawnObject(0, 1, 1.2f),
-                    new CampaignSpawnObject(0, 2, 1.2f),
-                    new CampaignSpawnObject(0, 3, 1.2f),
-                    new CampaignSpawnObject(0, 0, 1.4f),
-                    new CampaignSpawnObject(0, 1, 1.4f),
-                    new CampaignSpawnObject(0, 2, 1.4f),
-                    new CampaignSpawnObject(0, 3, 1.4f),
-                    new CampaignSpawnObject(0, 0, 1.6f),
-                    new CampaignSpawnObject(0, 1, 1.6f),
-                    new CampaignSpawnObject(0, 2, 1.6f),
-                    new CampaignSpawnObject(0, 3, 1.6f),
-                    new CampaignSpawnObject(0, 0, 1.8f),
-                    new CampaignSpawnObject(0, 1, 1.8f),
-                    new CampaignSpawnObject(0, 2, 1.8f),
-                    new CampaignSpawnObject(0, 3, 1.8f),
-                    new CampaignSpawnObject(0, 0, 2.0f),
-                    new CampaignSpawnObject(0, 1, 2.0f),
-                    new CampaignSpawnObject(0, 2, 2.0f),
-                    new CampaignSpawnObject(0, 3, 2.0f),
-                    new CampaignSpawnObject(0, 0, 2.2f),
-                    new CampaignSpawnObject(0, 1, 2.2f),
-                    new CampaignSpawnObject(0, 2, 2.2f),
-                    new CampaignSpawnObject(0, 3, 2.2f),
-                    new CampaignSpawnObject(0, 0, 3.0f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 2, 3.0f),
-                    new CampaignSpawnObject(0, 3, 3.0f),
-                    new CampaignSpawnObject(0, 0, 3.0f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 2, 3.0f),
-                    new CampaignSpawnObject(0, 3, 3.0f),
-                    new CampaignSpawnObject(0, 0, 3.0f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 2, 3.0f),
-                    new CampaignSpawnObject(0, 3, 3.0f),
-                    new CampaignSpawnObject(0, 0, 3.0f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 2, 3.0f),
-                    new CampaignSpawnObject(0, 3, 3.0f),
-                    new CampaignSpawnObject(0, 0, 3.0f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 2, 3.0f),
-                    new CampaignSpawnObject(0, 3, 3.0f),
-                    new CampaignSpawnObject(0, 0, 3.0f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 2, 3.0f),
-                    new CampaignSpawnObject(0, 3, 3.0f),
-                    new CampaignSpawnObject(0, 0, 3.0f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 2, 3.0f),
-                    new CampaignSpawnObject(0, 3, 3.0f),
-                    new CampaignSpawnObject(0, 0, 3.0f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 2, 3.0f),
-                    new CampaignSpawnObject(0, 3, 3.0f),
-                    new CampaignSpawnObject(0, 0, 3.0f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 2, 3.0f),
-                    new CampaignSpawnObject(0, 3, 3.0f),
-                    new CampaignSpawnObject(0, 0, 3.0f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 2, 3.0f),
-                    new CampaignSpawnObject(0, 3, 3.0f),
-                    new CampaignSpawnObject(0, 0, 3.0f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 2, 3.0f),
-                    new CampaignSpawnObject(0, 3, 3.0f),
-                    new CampaignSpawnObject(0, 0, 3.0f),
-                    new CampaignSpawnObject(0, 1, 3.0f),
-                    new CampaignSpawnObject(0, 2, 3.0f),
-                    new CampaignSpawnObject(0, 0, 10.0f),
-                    new CampaignSpawnObject(0, 1, 10.0f),
-                    new CampaignSpawnObject(0, 2, 10.0f),
-                    new CampaignSpawnObject(0, 3, 10.0f)
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 0.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 0.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 0.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 0.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 0.2f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 0.2f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 0.2f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 0.2f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 0.4f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 0.4f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 0.4f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 0.4f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 0.6f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 0.6f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 0.6f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 0.6f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 0.8f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 0.8f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 0.8f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 0.8f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 1.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 1.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 1.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 1.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 1.2f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 1.2f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 1.2f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 1.2f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 1.4f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 1.4f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 1.4f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 1.4f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 1.6f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 1.6f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 1.6f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 1.6f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 1.8f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 1.8f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 1.8f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 1.8f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 2.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 2.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 2.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 2.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 2.2f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 2.2f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 2.2f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 2.2f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 3.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, TOP, 10.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_TOP, 10.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, MIDDLE_BOTTOM, 10.0f),
+                    new CampaignSpawnObject(BOSS_INDEX, BOTTOM, 10.0f)
                 };
         }
     }
