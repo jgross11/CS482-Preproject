@@ -250,14 +250,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b2bdbf678082a409b43eb657146031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 8
-  currentHealth: 8
-  attack: 2
+  maxHealth: 3
+  currentHealth: 3
+  attack: 1
   level: 1
   experience: 3
   timeBetweenActions: 2
   movementSpeed: 2
-  type: 
+  type: Basic
   actionCooldown: 0
 --- !u!1 &3833137117343973220
 GameObject:
