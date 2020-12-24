@@ -60,17 +60,17 @@ public class PharmacistPillScript : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
                 transform.Rotate(Vector3.forward);
             }
-        } else{
-            // destroy this pill if the pharmacist who created it dies
-            // only wish to destroy it when not already in transit
-            if(parentScript == null){
-                Destroy(this.gameObject);
-            }
         }
 
         // otherwise if pill still needs to move towards desired position
         else if(currentLifeTime < maxMoveTime){
             
+            // destroy this pill if the pharmacist who created it dies
+            // only wish to destroy it when not already in transit
+            if(parentScript == null){
+                Destroy(this.gameObject);
+            }
+
             // move pill towards desired position
             transform.position = Vector3.MoveTowards(transform.position, randDirection, moveSpeed * Time.deltaTime);
         }
