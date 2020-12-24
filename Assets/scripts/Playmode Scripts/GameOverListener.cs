@@ -20,7 +20,9 @@ public class GameOverListener : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col){
-        if(col.tag == "zombie"){
+        // in the event that multiple zombies collide at the exact same time (hell wave),
+        // ensure only first one triggers game over as collider will be disabled when the next zombies collision is checked
+        if(col.tag == "zombie" && myCollider.enabled){
             
             // call game over in campaign logic
             callback.GameOver();
