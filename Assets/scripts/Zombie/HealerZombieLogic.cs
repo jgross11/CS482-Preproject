@@ -115,6 +115,21 @@ public class HealerZombieLogic : ZombieLogicScript
 
         // heal the target by this zombie's healing value amount
         target.Heal(value);
+
+        // healing animation on caster
+        zombieScript.sprite.color = Color.cyan;
+
+        // healing animation on target
+        target.sprite.color = Color.cyan;
+
+        // start animation end timer
+        StartCoroutine(EndHealingAnimation(target));
+    }
+
+    public IEnumerator EndHealingAnimation(Zombie target){
+        yield return new WaitForSeconds(0.3f);
+        zombieScript.UpdateSprite();
+        target.UpdateSprite();
     }
 
     void OnTriggerEnter2D(Collider2D coll){
