@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class BasicZombieLogicScript : ZombieLogicScript
 {
-    
+    // employee script of target
     private Employee employeeScript;
+
+    // true when attack animation ends, must make position level
+    private bool resetPosition;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +19,15 @@ public class BasicZombieLogicScript : ZombieLogicScript
     // Update is called once per frame
     void Update()
     {
+        // if just attacked
+        if(resetPosition){
 
+            // rotate back to base position over time
+            if(transform.parent.rotation.z > 0) transform.parent.Rotate(Vector3.back*0.3f);
+
+            // reset for next attack
+            else resetPosition = false;
+        }
     }
 
     // determines if zombie can move
@@ -35,8 +47,16 @@ public class BasicZombieLogicScript : ZombieLogicScript
 
     // determines way in which zombie acts
     public override void Act(){
+
+        // if a target exists
         if(employeeScript != null){
+
+            // deal damage to target
             employeeScript.TakeDamage(value);
+
+            // attack animation
+            transform.parent.Rotate(new Vector3(0, 0, 30));
+            resetPosition = true;
         }
     }
 
