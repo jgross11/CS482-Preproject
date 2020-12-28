@@ -16,6 +16,6 @@ public class CashierActionScript : ActionScript
 
     public override void Act(int attack)
     {
-        Instantiate(coin, transform.position, transform.rotation).GetComponent<CashierCoinScript>().setValue(attack/3 + 1);
+        Instantiate(coin, transform.position - Vector3.forward, transform.rotation).GetComponent<CashierCoinScript>().setValue(attack/3 + 1);
     }
 }
