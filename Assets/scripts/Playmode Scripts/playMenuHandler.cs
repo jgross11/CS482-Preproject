@@ -100,8 +100,8 @@ public class playMenuHandler : MonoBehaviour
             selectedSlotIndex = index;
             selectedEmployee = availableEmployees[index];
 
-            // change color of new selected sprite to gray
-            menuSlots[index].GetComponent<SpriteRenderer>().color = Color.gray;
+            // change color of new selected sprite to yellow
+            menuSlots[index].GetComponent<SpriteRenderer>().color = Color.yellow;
 
             // update reference to employee information script to draw stats
             employeeScript = selectedEmployee.GetComponent<Employee>();
