@@ -97,7 +97,7 @@ public class Zombie : MonoBehaviour
 
     // determines closeness to death of current zombie and displays this visually
     public void UpdateSprite(){
-        sprite.color = new Color(1.0f, (float) currentHealth / (float) maxHealth, (float) currentHealth / (float) maxHealth);
+        if(sprite != null) sprite.color = new Color(1.0f, (float) currentHealth / (float) maxHealth, (float) currentHealth / (float) maxHealth);
     }
 
 }

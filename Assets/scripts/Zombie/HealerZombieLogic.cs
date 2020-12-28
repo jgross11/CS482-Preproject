@@ -129,7 +129,7 @@ public class HealerZombieLogic : ZombieLogicScript
     public IEnumerator EndHealingAnimation(Zombie target){
         yield return new WaitForSeconds(0.3f);
         zombieScript.UpdateSprite();
-        target.UpdateSprite();
+        if (target != null) target.UpdateSprite();
     }
 
     void OnTriggerEnter2D(Collider2D coll){
