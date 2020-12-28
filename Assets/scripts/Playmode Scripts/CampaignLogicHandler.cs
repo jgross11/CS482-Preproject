@@ -134,11 +134,12 @@ public class CampaignLogicHandler : MonoBehaviour
         // reset coin spawn timer
         coinScript.currentTime = 0;
 
-        // respawn bama women if necessary
+        // respawn bama women
         for(int i = 0; i < bamaOnBoard.Length; i++){
-            if(bamaOnBoard[i] == null){
-                bamaOnBoard[i] = Instantiate(BAMAPrefab, bamaWomenPositions[i], Quaternion.identity);
+            if(bamaOnBoard[i] != null){
+                Destroy(bamaOnBoard[i]);
             }
+            bamaOnBoard[i] = Instantiate(BAMAPrefab, bamaWomenPositions[i], Quaternion.identity);
         }
     }
 
