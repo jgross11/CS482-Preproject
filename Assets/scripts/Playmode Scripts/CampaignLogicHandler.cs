@@ -140,7 +140,7 @@ public class CampaignLogicHandler : MonoBehaviour
         menuScript.RefreshAffordableTowers();
 
         // reset coin spawn timer
-        coinScript.currentTime = 0;
+        coinScript.Reset();
 
         // respawn bama women
         for(int i = 0; i < bamaOnBoard.Length; i++){

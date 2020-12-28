@@ -17,12 +17,15 @@ public class coinSpawner : MonoBehaviour
 
     public float currentTime;
 
+    private List<GameObject> coins;
+
 
     // Start is called before the first frame update
     void Start()
     {
         currentTime = 0;
         position = spawnerPosition.position;
+        coins = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -35,10 +38,22 @@ public class coinSpawner : MonoBehaviour
         {
             
             // spawn random zombie at given position
-            Instantiate(Coin, position, rotation);
+            coins.Add(Instantiate(Coin, position, rotation));
 
             // reset spawn timer
             currentTime = 0;
         }
+    }
+
+    public void Reset(){
+        // reset spawn timer
+        currentTime = 0;
+
+        // delete any created coins
+        foreach(GameObject coin in coins)
+        {
+            Destroy(coin);
+        }
+        coins = new List<GameObject>();
     }
 }
