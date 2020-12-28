@@ -10,6 +10,7 @@ public class Zombie : MonoBehaviour
     public float movementSpeed;
     private bool isActive;
     public string type;
+    public SpriteRenderer sprite;
 
     // unity doesn't like inheritance, so cannot be directly assigned
     private ZombieLogicScript zombieLogicScript;
@@ -32,6 +33,9 @@ public class Zombie : MonoBehaviour
 
         // initially has full health
         currentHealth = maxHealth;
+
+        // obtain reference to sprite renderer
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -77,6 +81,7 @@ public class Zombie : MonoBehaviour
             // destroy zombie gameobject
             Destroy(gameObject);
         }
+        UpdateSprite();
     }
 
     // heals zombie by given amount
@@ -87,7 +92,12 @@ public class Zombie : MonoBehaviour
         if(currentHealth > maxHealth){
             currentHealth = maxHealth;
         }
+        UpdateSprite();
     }
 
+    // determines closeness to death of current zombie and displays this visually
+    public void UpdateSprite(){
+        sprite.color = new Color(1.0f, (float) currentHealth / (float) maxHealth, (float) currentHealth / (float) maxHealth);
+    }
 
 }
