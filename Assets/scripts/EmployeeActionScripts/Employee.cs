@@ -75,12 +75,23 @@ public class Employee : MonoBehaviour
             actionCooldown = 0;
         }
 
+        // if recently leveled up
         if(shouldPlayLevelUpAnimation){
+
+            // add time to timer
             levelUpAnimationTimer += Time.deltaTime;
+
+            // assign random color to sprite
             sprite.color = new Color(Random.Range(0.7f, 1.0f), Random.Range(0.7f, 1.0f), Random.Range(0.7f, 1.0f));
+
+            // if animation should end
             if(levelUpAnimationTimer > levelUpAnimationTime){
+
+                // reset stats
                 levelUpAnimationTimer = 0.0f;
                 shouldPlayLevelUpAnimation = false;
+
+                // draw appropriate sprite color based on health
                 UpdateSprite();
             }
         }
