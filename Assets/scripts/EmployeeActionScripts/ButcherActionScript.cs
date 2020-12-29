@@ -16,6 +16,15 @@ public class ButcherActionScript : ActionScript
     // duration to play 'animation'
     public float animationDuration;
 
+    // reference to employee script used for leveling
+    private Employee employeeScript;
+    
+    void Start(){
+
+        // obtain reference to employee script
+        employeeScript = transform.parent.GetComponent<Employee>();
+    }
+    
     // butchers can act when there is a zombie in its melee range
     public override bool CanAct(){
         return zombieInRange;
@@ -53,8 +62,10 @@ public class ButcherActionScript : ActionScript
             StartCoroutine(ActionAnimationReset());
 
             // deal damage to zombie
-            // TODO 
             zombieCollider.GetComponent<Zombie>().Damage(value);
+
+            // add experience to the tower
+            employeeScript.AddExperience(value);
         }
     }
 
