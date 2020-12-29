@@ -12,6 +12,7 @@ public class CashierCoinScript : MonoBehaviour
     private float currentLifeTime = 0.0f;
     public float maxMoveTime = 1.0f;
     public float lifeTime = 7.0f;
+    private Employee employeeScript;
 
     void Start()
     {
@@ -30,14 +31,18 @@ public class CashierCoinScript : MonoBehaviour
         }
     }
 
-    public void setValue(int val){
+    public void SetValues(Employee emp, int val){
         value = val;
+        employeeScript = emp;
     }
 
     void OnMouseDown(){
         // absolutely awful
         // add coin value to coin count
-        GameObject.Find("tower-menu-background").GetComponent<playMenuHandler>().AddCoins(value);   
+        GameObject.Find("tower-menu-background").GetComponent<playMenuHandler>().AddCoins(value);
+
+        // add experience to cashier tower
+        employeeScript.AddExperience(value);   
 
         // destroy coin after a short period of time
         // cannot destroy immediately as, for example, if a pharmacist

@@ -11,8 +11,12 @@ public class CashierActionScript : ActionScript
     // list of coins created by this tower
     private List<GameObject> coins;
 
+    // employee reference passed to coin for leveling
+    private Employee employeeScript;
+
     void Start(){
         coins = new List<GameObject>();
+        employeeScript = transform.parent.GetComponent<Employee>();
     }
 
     // cashiers can generate a coin as soon as possible,
@@ -25,8 +29,13 @@ public class CashierActionScript : ActionScript
     // cashiers act by creating a coin to be collected by the player
     public override void Act(int attack)
     {
+        // create coin game object
         GameObject createdCoin = Instantiate(coin, transform.position - Vector3.forward, transform.rotation);
-        createdCoin.GetComponent<CashierCoinScript>().setValue(attack/3 + 1);
+
+        // set created coin employee reference, worth value
+        createdCoin.GetComponent<CashierCoinScript>().SetValues(employeeScript, attack/3 + 1);
+
+        // add coin to list of coins this tower created
         coins.Add(createdCoin);
     }
 
