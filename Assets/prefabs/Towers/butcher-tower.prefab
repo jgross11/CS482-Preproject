@@ -216,11 +216,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 0
-  attack: 1
-  baseAttack: 0
+  attack: 3
   level: 1
   experience: 0
-  experienceForNextLevel: 10
+  experienceForNextLevel: 9
   cost: 7
   timeBetweenActions: 1
   type: butcher

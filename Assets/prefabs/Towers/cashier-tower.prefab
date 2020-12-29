@@ -147,7 +147,7 @@ MonoBehaviour:
   attack: 1
   level: 1
   experience: 0
-  experienceForNextLevel: 10
+  experienceForNextLevel: 4
   cost: 3
   timeBetweenActions: 5
   type: Cashier
