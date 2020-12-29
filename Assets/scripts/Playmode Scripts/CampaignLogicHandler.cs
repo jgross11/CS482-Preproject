@@ -84,9 +84,6 @@ public class CampaignLogicHandler : MonoBehaviour
         // reset board to start-of-wave state
         ResetWaveParameters();
 
-        // reload current wave
-        spawnerScript.LoadNextWave();
-
         // reenable game over collider to detect game over for next wave
         gameOverDetectorCollider.enabled = true;
     }
@@ -112,9 +109,6 @@ public class CampaignLogicHandler : MonoBehaviour
 
         // reset board, coin spawner, etc.
         ResetWaveParameters();
-
-        // start next wave
-        spawnerScript.LoadNextWave();
     }
 
     // handles resetting of board state
@@ -149,6 +143,9 @@ public class CampaignLogicHandler : MonoBehaviour
             }
             bamaOnBoard[i] = Instantiate(BAMAPrefab, bamaWomenPositions[i], Quaternion.identity);
         }
+
+        // reload current wave
+        spawnerScript.LoadNextWave();
     }
 
     // newIndexAmount - the upper index whose employee will be displayed. All higher-indice employees are locked

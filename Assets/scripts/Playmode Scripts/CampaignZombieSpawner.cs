@@ -47,13 +47,6 @@ public class CampaignZombieSpawner : ZombieSpawner
     // whether or not the zombie spawner is done spawning
     public bool doneSpawning;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        LoadNextWave();
-    }
-
     public void LoadNextWave(){
 
         // wipe all currently existing zombies, if any exist
