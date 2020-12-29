@@ -101,10 +101,9 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   attack: 1
-  baseAttack: 0
   level: 1
   experience: 0
-  experienceForNextLevel: 10
+  experienceForNextLevel: 5
   cost: 4
   timeBetweenActions: 1
   type: produce
