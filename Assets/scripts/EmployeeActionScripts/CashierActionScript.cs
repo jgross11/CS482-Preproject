@@ -11,10 +11,7 @@ public class CashierActionScript : ActionScript
     // list of coins created by this tower
     private List<GameObject> coins;
 
-    // employee reference passed to coin for leveling
-    private Employee employeeScript;
-
-    void Start(){
+    public override void Start(){
         coins = new List<GameObject>();
         employeeScript = transform.parent.GetComponent<Employee>();
     }

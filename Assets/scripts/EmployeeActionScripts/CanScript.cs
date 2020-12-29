@@ -9,6 +9,9 @@ public class CanScript : MonoBehaviour
     // movement speed 
     public float moveSpeed;
 
+    // employee reference
+    private Employee employeeScript;
+
     // Start is called before the first frame update
 
     void Start()
@@ -24,9 +27,10 @@ public class CanScript : MonoBehaviour
 
     }
 
-    public void SetValue(int val)
+    public void SetValues(Employee emp, int val)
     {
         value = val;
+        employeeScript = emp;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -37,9 +41,10 @@ public class CanScript : MonoBehaviour
             // TODO implement zombie please
 
             // damage the zombie by this can's damage value
-            Zombie zombieScript = col.GetComponent<Zombie>();
+            col.GetComponent<Zombie>().Damage(value);
 
-            zombieScript.Damage(value);
+            // tower gets experience
+            employeeScript.AddExperience(value);
 
             /*
             // fix bug where zombie is destroyed before function is called

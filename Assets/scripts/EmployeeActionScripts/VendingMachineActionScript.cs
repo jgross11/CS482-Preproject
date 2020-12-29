@@ -31,6 +31,6 @@ public class VendingMachineActionScript : ActionScript
     {
         CanScript canScript = Instantiate(can, transform.position, transform.rotation).GetComponent<CanScript>();
 
-        canScript.SetValue(attack);
+        canScript.SetValues(employeeScript, attack);
     }
 }

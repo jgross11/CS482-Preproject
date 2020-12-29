@@ -12,9 +12,10 @@ public class GunnerActionScript : ActionScript
 
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         resetPosition = false;
+        employeeScript = transform.parent.GetComponent<Employee>();
     }
 
     // Update is called once per frame
@@ -55,9 +56,15 @@ public class GunnerActionScript : ActionScript
     // Gunners shoot bullets that move too fast to be seen, so their action is to simply
     // apply the damage to their target and play their attack animation
     public override void Act(int attackValue){
-        // if target still exists, deal damage
-        if (target != null) target.Damage(attackValue);
+        // if target still exists
+        if (target != null) {
 
+            // deal damage
+            target.Damage(attackValue);
+
+            // gain experience
+            employeeScript.AddExperience(attackValue);
+        }
         // rotate by 45 degrees to indicate shot was fired
         transform.parent.Rotate(new Vector3(0, 0, 45));
 

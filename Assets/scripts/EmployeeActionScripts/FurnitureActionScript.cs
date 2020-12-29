@@ -31,6 +31,10 @@ public class FurnitureActionScript : ActionScript
         if (!spawnPillow && myPillow != null)
         {
             myPillow.gameObject.GetComponent<Employee>().Heal(attack);
+
+            // the employee gains experience by repairing his defense
+            // TODO only heal (and give experience) if damage has been done to defense
+            employeeScript.AddExperience(attack);
         }
 
     }

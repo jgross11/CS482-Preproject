@@ -17,12 +17,16 @@ public class ManagerActionScript : ActionScript
 
    
     
-    void Start()
+    public override void Start()
     {
+        // reference to employee
+        // TODO determine how manager gains experience
+        employeeScript = transform.parent.GetComponent<Employee>();
+        
         //finds all objects on the employee layer
         hits = Physics2D.CircleCastAll(transform.position, radius, Vector3.right, Mathf.Infinity, 1 << LayerMask.NameToLayer("employee"));
 
-        int attack = this.transform.parent.gameObject.GetComponent<Employee>().attack;
+        int attack = employeeScript.attack;
 
         //adds the boost to all non boost types
         foreach (RaycastHit2D h in hits)
@@ -48,7 +52,7 @@ public class ManagerActionScript : ActionScript
     {
         hits = Physics2D.CircleCastAll(transform.position, radius, Vector3.right, Mathf.Infinity, 1 << LayerMask.NameToLayer("employee"));
 
-        int attack = this.transform.parent.gameObject.GetComponent<Employee>().attack;
+        int attack = employeeScript.attack;
 
         foreach (RaycastHit2D h in hits)
         {

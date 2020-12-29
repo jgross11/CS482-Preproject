@@ -18,7 +18,7 @@ public class ProduceActionScript : ActionScript
         ProduceCarrotScript carrotScript = Instantiate(carrotPrefab, transform.position, transform.rotation).GetComponent<ProduceCarrotScript>();
         
         // set carrot damage value
-        carrotScript.SetValue(attack);
+        carrotScript.SetValues(employeeScript, attack);
     }
 
     // produce towers can act whenever a zombie is within their range

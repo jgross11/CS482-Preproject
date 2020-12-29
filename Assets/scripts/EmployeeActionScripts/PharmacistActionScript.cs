@@ -35,7 +35,7 @@ public class PharmacistActionScript : ActionScript
     // maximum amount of pills able to be out at any given time
     public int maxAmountOfPills;
     
-    void Start()
+    public override void Start()
     {
         // reset isSelecting to false after a short period of time to circumvent
         // bug wherein placing this tower automatically selects it
@@ -46,6 +46,9 @@ public class PharmacistActionScript : ActionScript
 
         // at start, no pills have been created
         pillsOut = 0;
+
+        // employee reference
+        employeeScript = transform.parent.GetComponent<Employee>();
 
         // max amount of pills = pill lifetime / tower firing speed
         maxAmountOfPills = (int) (pillPrefab.GetComponent<PharmacistPillScript>().lifeTime / parentCollider.GetComponent<Employee>().timeBetweenActions);
@@ -172,7 +175,7 @@ public class PharmacistActionScript : ActionScript
 
         // set healing power relative to this tower's attack
         // TODO balancing
-        pillScript.SetValue(attack/3 + 1);
+        pillScript.SetValues(employeeScript, attack/3 + 1);
 
         // set pill's initial target to be the currently selected tower 
         pillScript.SetTarget(target);

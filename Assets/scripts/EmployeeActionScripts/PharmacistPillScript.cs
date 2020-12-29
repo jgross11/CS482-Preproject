@@ -29,6 +29,9 @@ public class PharmacistPillScript : MonoBehaviour
     // speed at which pill moves towards target when active
     public float moveSpeed = 15.0f;
 
+    // the tower's employee reference
+    private Employee employeeScript;
+
     // the tower which created this pill
     public PharmacistActionScript parentScript;
     
@@ -84,8 +87,9 @@ public class PharmacistPillScript : MonoBehaviour
     }
 
     // set healing value 
-    public void SetValue(int val){
+    public void SetValues(Employee emp, int val){
         value = val;
+        employeeScript = emp;
     }
 
     // set target tower
@@ -121,6 +125,9 @@ public class PharmacistPillScript : MonoBehaviour
             // heal target by this pill's amount
             target.GetComponent<Employee>().Heal(value);
 
+            // pharmacist tower gets experience
+            employeeScript.AddExperience(value);
+
             // destroy pill
             Destroy(this.gameObject);
         }
@@ -131,6 +138,7 @@ public class PharmacistPillScript : MonoBehaviour
     void OnTriggerStay2D(Collider2D col){
         if(isActive && target != null && col == target.GetComponent<Collider2D>()){
             target.GetComponent<Employee>().Heal(value);
+            employeeScript.AddExperience(value);
             Destroy(this.gameObject);
         }
     }

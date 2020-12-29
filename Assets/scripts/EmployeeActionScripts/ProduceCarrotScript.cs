@@ -10,6 +10,9 @@ public class ProduceCarrotScript : MonoBehaviour
     // movement speed 
     public float moveSpeed;
 
+    // employee reference
+    private Employee employeeScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +35,10 @@ public class ProduceCarrotScript : MonoBehaviour
             // TODO implement zombie please
             
             // damage the zombie by this carrot's damage value
-            Zombie zombieScript = col.GetComponent<Zombie>();
-            
-            zombieScript.Damage(value);
+            col.GetComponent<Zombie>().Damage(value);
+
+            // give experience to produce tower
+            employeeScript.AddExperience(value);
             
             /*
             // fix bug where zombie is destroyed before function is called
@@ -51,7 +55,8 @@ public class ProduceCarrotScript : MonoBehaviour
     }
 
     // set this carrot's damage value
-    public void SetValue(int val){
+    public void SetValues(Employee emp, int val){
         value = val;
+        employeeScript = emp;
     }
 }
