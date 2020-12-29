@@ -93,13 +93,14 @@ public class Employee : MonoBehaviour
     // as well as level-up case, if necessary
     public void AddExperience(int amount){
         experience += amount;
-        if(experience > experienceForNextLevel){
+        if(experience >= experienceForNextLevel){
             LevelUp();
         }
     }
 
     // dictates level up logic
     public void LevelUp(){
+        
         // increment level
         level++;
 
