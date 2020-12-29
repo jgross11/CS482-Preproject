@@ -18,10 +18,19 @@ public class Employee : MonoBehaviour
 
     //a radius value is now needed, should be updated if another boost tower is implemented with a larger radius than this, although, a radius of 5 seems to work well
     private int radiusForBoost = 5;
+
+    // time to display level up animation
+    private float levelUpAnimationTime = 1.0f;
+
+    // period of time current animation has been played
+    private float levelUpAnimationTimer = 0.0f;
+
+    // true upon leveling up for a short period of time
+    private bool shouldPlayLevelUpAnimation = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
 
         // bypass unity's anti-inheritance stance by attaching the concrete script to the tower's child
         actionScript = this.gameObject.transform.GetChild(0).GetComponent<ActionScript>();
@@ -65,6 +74,16 @@ public class Employee : MonoBehaviour
             actionScript.Act(attack);
             actionCooldown = 0;
         }
+
+        if(shouldPlayLevelUpAnimation){
+            levelUpAnimationTimer += Time.deltaTime;
+            sprite.color = new Color(Random.Range(0.7f, 1.0f), Random.Range(0.7f, 1.0f), Random.Range(0.7f, 1.0f));
+            if(levelUpAnimationTimer > levelUpAnimationTime){
+                levelUpAnimationTimer = 0.0f;
+                shouldPlayLevelUpAnimation = false;
+                UpdateSprite();
+            }
+        }
     }
 
     // handles reduction of health by a given amount
@@ -100,7 +119,7 @@ public class Employee : MonoBehaviour
 
     // dictates level up logic
     public void LevelUp(){
-        
+
         // increment level
         level++;
 
@@ -112,6 +131,9 @@ public class Employee : MonoBehaviour
         currentHealth += 5;
         attack += 2;
         experienceForNextLevel = (int)(experienceForNextLevel * 1.1f) + 2;
+
+        // play animation
+        shouldPlayLevelUpAnimation = true;
     }   
 
     // determines closeness to death of current employee and displays this visually
