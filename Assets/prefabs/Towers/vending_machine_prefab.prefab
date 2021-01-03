@@ -101,7 +101,6 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 4
   attack: 3
-  baseAttack: 0
   level: 1
   experience: 3
   experienceForNextLevel: 10
