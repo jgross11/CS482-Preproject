@@ -22,6 +22,7 @@ public class IOManager : MonoBehaviour
         PlayerPrefs.SetInt(SaveObject.HAPPINESS, SaveObject.numHappiness);
         PlayerPrefs.SetInt(SaveObject.MAX_SWARM_WAVE, SaveObject.maxSwarmWave);
         PlayerPrefs.SetInt(SaveObject.MAX_CAMPAIGN_WAVE, SaveObject.maxCampaignWave);
+        PlayerPrefs.SetInt(SaveObject.SWARM_TOWER_SELECTIONS, SaveObject.swarmTowerSelections);
 
         // acts as force save, otherwise only save occurs on safe exit of game (everything is lost on game crash)
         PlayerPrefs.Save();
@@ -37,6 +38,10 @@ public class IOManager : MonoBehaviour
         SaveObject.numHappiness = PlayerPrefs.GetInt(SaveObject.HAPPINESS, 0);
         SaveObject.maxSwarmWave = PlayerPrefs.GetInt(SaveObject.MAX_SWARM_WAVE, 0);
         SaveObject.maxCampaignWave = PlayerPrefs.GetInt(SaveObject.MAX_CAMPAIGN_WAVE, 0);
+
+        // default swarm wave to load is most challenging not yet beat
+        SaveObject.loadSwarmWave = SaveObject.maxSwarmWave+1;
+        SaveObject.swarmTowerSelections = PlayerPrefs.GetInt(SaveObject.SWARM_TOWER_SELECTIONS, 0);
     }
 
     // save player information to binary file
