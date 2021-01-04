@@ -9,14 +9,14 @@ public class LoaderTextDisplay : MonoBehaviour
 
     void Update()
     {
-        display.text = "Happiness: " + SaveObject.numHappiness;
+        display.text = "Essence: " + SaveObject.numEssence;
     }
 
     public void IncrementHappiness(){
-        SaveObject.numHappiness++;
+        SaveObject.numEssence++;
     }
 
     public void DecrementHappiness(){
-        SaveObject.numHappiness--;
+        SaveObject.numEssence--;
     }
 }

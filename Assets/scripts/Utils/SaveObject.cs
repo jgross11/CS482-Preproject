@@ -4,9 +4,9 @@ using UnityEngine;
 
 public static class SaveObject
 {
-    // amount of happiness 
-    public static int numHappiness;
-    public const string HAPPINESS = "happiness";
+    // amount of james' essence 
+    public static int numEssence;
+    public const string ESSENCE = "essence";
 
     // highest swarm wave number
     public static int maxSwarmWave;

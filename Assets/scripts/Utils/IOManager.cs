@@ -19,7 +19,7 @@ public class IOManager : MonoBehaviour
     // save player information to playerpreferences
     public static void SaveToPlayerPreferences(){
         // TODO set all save data attributes here...
-        PlayerPrefs.SetInt(SaveObject.HAPPINESS, SaveObject.numHappiness);
+        PlayerPrefs.SetInt(SaveObject.ESSENCE, SaveObject.numEssence);
         PlayerPrefs.SetInt(SaveObject.MAX_SWARM_WAVE, SaveObject.maxSwarmWave);
         PlayerPrefs.SetInt(SaveObject.MAX_CAMPAIGN_WAVE, SaveObject.maxCampaignWave);
         PlayerPrefs.SetInt(SaveObject.SWARM_TOWER_SELECTIONS, SaveObject.swarmTowerSelections);
@@ -35,7 +35,7 @@ public class IOManager : MonoBehaviour
         saveDataExists = PlayerPrefs.HasKey(SaveObject.MAX_CAMPAIGN_WAVE);
 
         // TODO get all save data attributes here...
-        SaveObject.numHappiness = PlayerPrefs.GetInt(SaveObject.HAPPINESS, 0);
+        SaveObject.numEssence = PlayerPrefs.GetInt(SaveObject.ESSENCE, 0);
         SaveObject.maxSwarmWave = PlayerPrefs.GetInt(SaveObject.MAX_SWARM_WAVE, 0);
         SaveObject.maxCampaignWave = PlayerPrefs.GetInt(SaveObject.MAX_CAMPAIGN_WAVE, 0);
 

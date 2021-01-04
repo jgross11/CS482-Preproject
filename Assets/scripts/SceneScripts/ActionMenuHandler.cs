@@ -23,7 +23,7 @@ public class ActionMenuHandler : MonoBehaviour
         researchButton.interactable = SaveObject.maxSwarmWave > 20;
 
         // display saved stats to user
-        userInfoText.text = "\nHappiness currency count: " + SaveObject.numHappiness;
+        userInfoText.text = "\nHappiness currency count: " + SaveObject.numEssence;
         userInfoText.text += "\nHighest campaign wave: " + SaveObject.maxCampaignWave;
         userInfoText.text += "\nHighest swarm wave: " + SaveObject.maxSwarmWave;
     }
