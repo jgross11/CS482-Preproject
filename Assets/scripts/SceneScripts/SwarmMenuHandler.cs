@@ -119,6 +119,9 @@ public class SwarmMenuHandler : MonoBehaviour
             // reset selected sprite
             selectionToMakeSpriteRenderer.color = Color.white;
             selectionToMakeSpriteRenderer = null;
+
+            // clear selected index
+            selectionToMakeIndex = -1;
         }
     }
 
