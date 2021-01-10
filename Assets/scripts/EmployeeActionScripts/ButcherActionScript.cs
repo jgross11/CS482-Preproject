@@ -37,7 +37,7 @@ public class ButcherActionScript : ActionScript
         // if the tower is attacking, 'animate'
         if(isActing){
             // rotate tower itself 
-            transform.parent.Rotate(0, 0, -2);
+            transform.parent.Rotate(0, 0, -200*Time.deltaTime);
         }
     }
 

@@ -25,7 +25,7 @@ public class GunnerActionScript : ActionScript
         if(resetPosition){
 
             // slowly rotate back to kneeling position over time
-            if(transform.parent.rotation.z > 0) transform.parent.Rotate(Vector3.back*0.3f);
+            if(transform.parent.rotation.z > 0) transform.parent.Rotate(Vector3.back*90f*Time.deltaTime);
 
             // reset for next attack
             else resetPosition = false;
@@ -57,18 +57,31 @@ public class GunnerActionScript : ActionScript
     // apply the damage to their target and play their attack animation
     public override void Act(int attackValue){
         // if target still exists
-        if (target != null) {
+        if (target != null && target.currentHealth > 0) {
 
             // deal damage
             target.Damage(attackValue);
 
+            // remove current target if it is now dead
+            if(target.currentHealth < 1) target = null;
+
             // gain experience
             employeeScript.AddExperience(attackValue);
-        }
-        // rotate by 45 degrees to indicate shot was fired
-        transform.parent.Rotate(new Vector3(0, 0, 45));
 
-        // indicate position resetting must occur
-        resetPosition = true;
+            // rotate by 45 degrees to indicate shot was fired
+            transform.parent.Rotate(new Vector3(0, 0, 45));
+
+            // indicate position resetting must occur
+            resetPosition = true;
+
+        // otherwise, target was already damaged to death
+        } else{
+
+            // set action cooldown so a new target can be found immediately
+            employeeScript.actionCooldown = employeeScript.timeBetweenActions;
+
+            // preemptively remove the current target to immediately allow new one to be searched for
+            target = null;
+        }
     }
 }
