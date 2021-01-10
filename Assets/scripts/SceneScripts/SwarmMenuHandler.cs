@@ -73,7 +73,7 @@ public class SwarmMenuHandler : MonoBehaviour
 
     public void IncrementWaveNumber(){
         if(SaveObject.loadSwarmWave <= SaveObject.maxSwarmWave){
-            if(++SaveObject.loadSwarmWave == SaveObject.maxSwarmWave) 
+            if(++SaveObject.loadSwarmWave == SaveObject.maxSwarmWave+1) 
                 incrementSwarmNumberButton.enabled = false;
             else if(!decrementSwarmNumberButton.enabled)
                 decrementSwarmNumberButton.enabled = true;
