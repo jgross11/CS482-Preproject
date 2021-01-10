@@ -197,7 +197,7 @@ public class playMenuHandler : MonoBehaviour
 
     public void ChangeTimeScale(){
         Time.timeScale += 1;
-        if(Time.timeScale > 3) Time.timeScale = 1;
+        if(Time.timeScale > 5) Time.timeScale = 1;
         timeScaleText.text = Time.timeScale + "x";
     }
 }
