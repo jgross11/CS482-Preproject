@@ -8,18 +8,6 @@ using UnityEngine.UI;
 // handles all spawning logic for the zombie spawner found in campaign mode
 public class CampaignZombieSpawner : ZombieSpawner
 {
-    // zombie type constants
-    private const int BASIC_INDEX = 0;
-    private const int TANK_INDEX = 1;
-    private const int HEALER_INDEX = 2;
-    private const int MINI_BOSS_INDEX = 3;
-    private const int BOSS_INDEX = 4;
-
-    // spawn position constants
-    private const int TOP = 0;
-    private const int MIDDLE_TOP = 1;
-    private const int MIDDLE_BOTTOM = 2;
-    private const int BOTTOM = 3;
 
     // contains zombie type, time, and position information 
     private CampaignSpawnObject[] spawnObjects;
@@ -79,7 +67,7 @@ public class CampaignZombieSpawner : ZombieSpawner
 
         numAliveZombies = 0;
 
-        // start of wave -> move zombies to spawn
+        // start of wave -> more zombies to spawn
         doneSpawning = false;
     }
 
@@ -147,6 +135,8 @@ public class CampaignZombieSpawner : ZombieSpawner
     // Ex. spawn the basic (index 0) zombie in this spawner's array of zombies to spawn,
     // Ex. at the middle-top (index 1) position in this spawner's array of positions,
     // Ex. at time = 0.0.
+
+	// no, this was not all hard coded - see scene CampaignWaveBuilder and associated scripts for details
 
     public CampaignSpawnObject[] GetWaveContents(int index){
         switch(index){
