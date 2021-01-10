@@ -71,8 +71,8 @@ public class Employee : MonoBehaviour
             // act, and then reset action cooldown
             // TODO determine if attack is always 
             // the scaling stat
-            actionScript.Act(attack);
             actionCooldown = 0;
+            actionScript.Act(attack);
         }
 
         // if recently leveled up
