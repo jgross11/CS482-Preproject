@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 // handles a bunch of stuff that it probably shouldn't
@@ -26,6 +27,9 @@ public class playMenuHandler : MonoBehaviour
 
     // number of coins / happiness (short term currency) gathered thus far
     private int numberOfCoins = 10;
+
+    // time scale text
+    public Text timeScaleText;
     
     // Start is called before the first frame update
     void Start()
@@ -39,13 +43,15 @@ public class playMenuHandler : MonoBehaviour
         // create preview of each available employee type
         // in the header menu
         CreateTowerPreview();
-        
 
         // no tower is initially selected
         selectedSlotIndex = -1;
 
         // compute initial affordability
         RefreshAffordableTowers();
+
+        // set initial time scale
+        timeScaleText.text = Time.timeScale + "x";
     }
 
     // updates tower menu to display the sprites of available towers
@@ -187,5 +193,11 @@ public class playMenuHandler : MonoBehaviour
     // returns the selected employee prefab
     public GameObject GetSelectedEmployee(){
         return selectedEmployee;
+    }
+
+    public void ChangeTimeScale(){
+        Time.timeScale += 1;
+        if(Time.timeScale > 3) Time.timeScale = 1;
+        timeScaleText.text = Time.timeScale + "x";
     }
 }
