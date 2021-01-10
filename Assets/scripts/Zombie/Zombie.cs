@@ -100,4 +100,15 @@ public class Zombie : MonoBehaviour
         if(sprite != null) sprite.color = new Color(1.0f, (float) currentHealth / (float) maxHealth, (float) currentHealth / (float) maxHealth);
     }
 
+    // sets stats of zombie relative to the level passed as param
+    public void SetLevel(int newLevel){
+        level = newLevel;
+
+        // TODO individualize
+        attack += level;
+        maxHealth += level;
+        currentHealth += level;
+        movementSpeed += level;
+    }
+
 }
